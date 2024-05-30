@@ -51,7 +51,7 @@ const  App = () => {
                   <Route path ='/cart' element ={<Cart />} />
                   <Route path ='*' element ={<ErrorPage />} />
                 </Routes>
-              <Footer />
+              <Footer className = "bg-blue-500" />
              </BrowserRouter>  
         </ThemeProvider>
   );

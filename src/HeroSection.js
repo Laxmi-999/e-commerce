@@ -90,32 +90,31 @@ const HeroSection = ({ myData }) =>{
     return(
 
      <Wrapper>
-        <div className="container">
-                <div className=" grid grid-two-column">
-                        <div className="hero-section-data">
-                        <p className="intro-data">welcome to</p>
-                         <h1>{name}</h1>
-                            <p>
-                              If you've followed these steps and are still facing issues accessing 
-                                the public folder in your React project, please provide more details about
-                                your setup, error messages, or any specific problems you're encountering so 
-                                that I can assist you further.
-                            </p>
-                          <NavLink>
-                            <Button>
-                                shop now
-                            </Button>
-                          </NavLink>
-                        </div>
-                        <div className="hero-section-image">
-                          <figure>
-                            <img  src = "images/hero-img.jpg" alt= "hero-image" className="hero-img" />
-                          </figure>
-                        </div>
-                </div>
-         
-
+       <div className="container mx-auto px-4 py-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="hero-section-data">
+            <p className="intro-data text-sm sm:text-base">welcome to</p>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">{name}</h1>
+            <p className="mt-4 text-base sm:text-lg">
+                If you've followed these steps and are still facing issues accessing 
+                the public folder in your React project, please provide more details about
+                your setup, error messages, or any specific problems you're encountering so 
+                that I can assist you further.
+            </p>
+            <NavLink to="/shop">
+                <button className="mt-6 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300">
+                    Shop Now
+                </button>
+            </NavLink>
         </div>
+        <div className="hero-section-image">
+            <figure>
+                <img src="images/hero-img.jpg" alt="hero-image" className="w-full h-auto rounded shadow-lg" />
+            </figure>
+        </div>
+    </div>
+</div>
+
 
  </Wrapper>
     );

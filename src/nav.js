@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { ThemeConsumer } from "styled-components";
 import { NavLink } from "react-router-dom";
 import { GlobalStyle } from "./GlobalStyle";
 import { FiShoppingCart } from "react-icons/fi";
 import { CgMenu, CgClose } from "react-icons/cg";
-import { useState } from "react";
+import { useCartContext } from "./Context/cart_context";
 
 const StyledNav = styled.nav`
 .navbar-lists{
@@ -15,24 +15,19 @@ const StyledNav = styled.nav`
         gap:4rem;
         list-style-type: none;
 
-
         .navbar-link{
             &:link,
-            &:visited
-            {
-        display: inline-block;
-        
-        text-decoration:none;
-        font-size: 2.5rem;
-        font-weight: 500;
-        text-transformation: Uppercase;
-        color: ${({theme}) => theme.color.black };
-        transition:  Color 0.5s  linear; 
-    }  
- } 
+            &:visited {
+                display: inline-block;
+                text-decoration: none;
+                font-size: 2.5rem;
+                font-weight: 500;
+                text-transform: uppercase;
+                color: ${({ theme }) => theme.color.black};
+                transition: color 0.5s linear; 
+            }  
+        }
 
-
-        .
         ${'' /* visibility: visible;
         justify-content: center;
         align-items: center;
@@ -49,11 +44,12 @@ const StyledNav = styled.nav`
     }
     .cart-trolly{
         position: relative;
-        font-size: 2rem;
+        font-size: 3rem;
     }
     .cart-total--item{
         height:2.5rem;
         width: 2.5rem;
+        font-size:1.5rem;
         position: absolute;
         background-color: "#000";
         border-radius:50%;
@@ -61,7 +57,7 @@ const StyledNav = styled.nav`
         place-items: center;
         top:-50%;
         left: 90%;
-        background-color: ${({theme}) => theme.color.helper};
+        background-color: ${({ theme }) => theme.color.helper};
     }
     .mobile-navbar-btn{
         display: none;
@@ -69,42 +65,37 @@ const StyledNav = styled.nav`
         border: none;
         background-color: white;
     }
-    .mobile-nav-icon[ name= "close-outline"]{
+    .mobile-nav-icon[name="close-outline"]{
         display: none;
     }
     .close-outline{
         display: none;
     }
 
-
-
-    @media(max-width: ${({theme}) => theme.media.mobile})
-    {
-        .mobile-navbar-btn
-        {
+    @media(max-width: ${({ theme }) => theme.media.mobile}) {
+        .mobile-navbar-btn {
             display: inline-block;
             z-index: 9999;
-            border: ${({ theme}) => theme.color.black};
+            border: ${({ theme }) => theme.color.black};
         
-        .mobile-nav-icon{
-            font-size: 4.2rem;
-            color: ${({ theme}) => theme.color.black};
+            .mobile-nav-icon {
+                font-size: 4.2rem;
+                color: ${({ theme }) => theme.color.black};
+            }
         }
-        }   
-        .active .mobile-nav-icon{
+        .active .mobile-nav-icon {
             display: none;
-            font-size:4.2rem;
-            positon:absolute;
-            top:30%;
-            right:10%;
-            color: ${({ theme}) => theme.color.black};
+            font-size: 4.2rem;
+            position: absolute;
+            top: 30%;
+            right: 10%;
+            color: ${({ theme }) => theme.color.black};
         }
-        .active .close-outline{
+        .active .close-outline {
             display: inline-block;
             ${'' /* background-color: yellow; */}
-
         }
-        .navbar-lists{
+        .navbar-lists {
             ${'' /* background-color: pink; */}
             height: 100vh;
             width: 100vh;
@@ -115,90 +106,112 @@ const StyledNav = styled.nav`
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-item: center;
+            align-items: center;
             visibility: hidden;
             opacity: 0;
             transform: translateX(100%);
             transition: all 3s linear;
         }
        
-        .active .navbar-lists{
+        .active .navbar-lists {
             ${'' /* background-color: pink; */}
             height: 100vh;
             width: 100vh;
             background-color: transparent;
             position: absolute;
             top: 30vh;
-            visibility:visible;
-            opacity:1;
+            visibility: visible;
+            opacity: 1;
             transform: translateX(0);
             z-index: 9999;
-            justify-content:center;
+            justify-content: center;
             ${'' /* align-items:center; */}
             transform-origin: right;
             transition: all 3s linear;
             ${'' /* background-color: pink; */}
 
-
-            .navbar-link{
-                font-size:2.5rem;
+            .navbar-link {
+                font-size: 2.5rem;
                 ${'' /* background-color: pink; */}
             }
         }
     } 
-    
-    `;
+`;
 
-const Nav = () =>
-{
-    const[menuIcons, setMenuIcons] = useState();
+const Nav = () => {
+    const [menuIcons, setMenuIcons] = useState(false);
+    const { total_item } = useCartContext();
+    const [selectedIndex, setMenuIndex] = useState(0);
 
-    return(
+    const getComponentStyle = (isActive) => {
+        if (isActive) {
+            // Apply active component styles
+            return {
+                color: 'orange',
+                textDecoration: 'underline',
+                fontSize: '2.5rem'
+            };
+        } else {
+            // Apply other component styles
+            return {
+                color: 'black',
+                fontSize: '2.5rem', // Update the font size as desired
+            };
+        }
+    };
+
+    return (
         <StyledNav>
-         <figure>
-        {/* <img  src = 'images/Luxxy.png' alt = 'my-store-logo' /> */}
-        </figure>
-          <div className ={menuIcons ? "navbar active" : "navbar"}>
-             <ul className="navbar-lists">
-                <li>
-                  <NavLink  className= "navbar-link" to= "/"
-                  onClick = {() => setMenuIcons(false)}>Home</NavLink>
-                 </li>
-                 <li>
-                  <NavLink  className= "navbar-link"  to= "/about"
-                  onClick = {() => setMenuIcons(false)}>About</NavLink>
-                 </li>
-                 <li>
-                  <NavLink  className= "navbar-link" to= "/contact"
-                  onClick = {() => setMenuIcons(false)}>Contact</NavLink>
-                 </li>
-                 <li>
-                  <NavLink  className= "navbar-link" to= "/product"
-                 onClick = {() => setMenuIcons(false)}>Product</NavLink>
-                 </li>
-                 <li>
-                  <NavLink  className= "navbar-link trolly--link" to= "/cart"
-                  onClick = {() => setMenuIcons(false)}
-                  >
-                  <FiShoppingCart className = "cart=trolly"/>
-                  <span className="cart-total--item">15</span>
-
-                  </NavLink>
-                 </li>
+            <figure>
+                {/* <img src='images/Luxxy.png' alt='my-store-logo' /> */}
+            </figure>
+            <div className={menuIcons ? "navbar active" : "navbar"}>
+                <ul className="navbar-lists">
+                    <li>
+                    <NavLink
+                    to="/"
+                    onClick={() => { setMenuIcons(false); setMenuIndex(0); }}
+                    style={({ isActive }) => getComponentStyle(isActive)}
+                >
+                    Home
+                </NavLink>
+                    </li>
+                    <li>
+                        <NavLink  to="/about"
+                             onClick={() => { setMenuIcons(false); setMenuIndex(0); }}
+                        style={({ isActive }) => getComponentStyle(isActive)}>About</NavLink>
+                    </li>
+                    <li>
+                        <NavLink  to="/contact"
+                              onClick={() => { setMenuIcons(false); setMenuIndex(0); }}
+                              style={({ isActive }) => getComponentStyle(isActive)} >Contact</NavLink>
+                    </li>
+                    <li>
+                        <NavLink  to="/product"
+                            onClick={() => { setMenuIcons(false); setMenuIndex(0); }}
+                            style={({ isActive }) => getComponentStyle(isActive)} >Product</NavLink>
+                    </li>
+                    <li>
+                        <NavLink className="navbar-link nav-li-active trolly--link" to="/cart"
+                             onClick={() => { setMenuIcons(false); setMenuIndex(0); }}
+                             style={({ isActive }) => getComponentStyle(isActive)}
+                        >
+                            <FiShoppingCart className="cart-trolly" />
+                            <span className="cart-total--item">{total_item}</span>
+                        </NavLink>
+                    </li>
                 </ul>
 
                 <div className="mobile-navbar-btn">
-                <CgMenu  name = "menu-outline" className = "mobile-nav-icon" 
-                    onClick = {() => setMenuIcons(true)}
-                />
-                <CgClose name = "close-outline" className = "mobile-nav-icon close-outline"
-                onClick = {() => setMenuIcons(false)} />
-
+                    <CgMenu name="menu-outline" className="mobile-nav-icon text-3xl sm:text-2xl md:text-xl lg:text-lg"
+                        onClick={() => setMenuIcons(true)}
+                    />
+                    <CgClose name="close-outline" className="mobile-nav-icon close-outline text-3xl sm:text-2xl md:text-xl lg:text-lg"
+                        onClick={() => setMenuIcons(false)} />
                 </div>
             </div>
         </StyledNav>
-   
     );
-
 };
+
 export default Nav;

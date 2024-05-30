@@ -22,7 +22,7 @@ const Contact = () =>
                     <input type = "email" placeholder="enter your email" name = "email" required  autoComplete="off"/>
                     <textarea type = "text" placeholder="type your messag" cols ="30" rows = "10"
                     name = "Message" required  autoComplete="off"></textarea>
-                    <input type = "submit" value = "send"/>
+                    <input type = "submit" value = "send" className="rounded-[1rem] send-btn " />
                 </form>
             </div>
           </div>
@@ -79,7 +79,51 @@ ${'' /* padding:5rem; */}
     gap:3rem;
     ${'' /* padding-left:0; */}
     ${'' /* padding-right:10rem; */}
+
+
+
+
+
+    @media (max-width: 768px) {
+      margin-left: 5rem;
+      margin-right: 5rem;
+      padding: 3rem;
+
+      .contact-heading{
+        font-size:2rem;
+      }
+
+
+      .send-btn{
+      height:auto;
+      width:20vh;
+      font-size:1rem;
+      font-color:white;
+      padding:1rem;
+    }
+    }
+
+    @media (max-width: 480px) {
+      margin-left: 2rem;
+      margin-right: 2rem;
+      padding: 2rem;
+
+      .contact-heading{
+        font-size:2rem;
+      }
+
+
+      .send-btn{
+      height:auto;
+      width:10vh;
+      font-size:1rem;
+      font-color:white;
+      padding:1rem;
+    }
+  }
 }
+    
+
 
 `;
 export default Contact;

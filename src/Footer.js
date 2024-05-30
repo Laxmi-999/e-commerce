@@ -9,23 +9,21 @@ const Footer = () => {
 
  return(
 <>
-        <Wrapper>
-        <secction>
+        <Wrapper className="wrapper">
             <div className=" contact-short">
-            <div className="grid grid-two-columns">
-                <div >
+            <div className="grid  grid-two-columns">
+                <div className="heading-txt" >
                     <h3>Ready to get started?</h3>
                     <h3>Talk to us today</h3>
                 </div>
-                <div>
-                    <Button>
-                        <NavLink to ="/contact">Get started</NavLink>
+                <div className="btn-div">
+                    <Button className="btn">
+                        <NavLink to ="/contact" className="btn-txt">Get started</NavLink>
                     </Button>
                 </div>
 
             </div>
             </div>
-        </secction>
         
         {/* main footer */}
         <footer className="footer">
@@ -138,6 +136,7 @@ ${'' /* margin-bottom:10%; */}
         width:20vh;
     }
 }
+
 .footer_Subscribe{
     display:grid;
     gap:1rem;
@@ -160,5 +159,61 @@ ${'' /* margin-bottom:10%; */}
     }
 }
 
+@media(max-width: ${({theme}) => theme.media.mobile})
+{
+   position:relative;
+   ${'' /* background-color:blue; */}
+   justify-self:center;
+   align-self:center;
+   margin-top:260vh;
+
+   .contact-short{
+    ${'' /* padding:auto; */}
+    margin:auto;
+    height:auto;
+    max-width:auto;
+    align-self:first;
+    justify-self:first;
+    padding: 0.5rem;
+    border-radius:2rem;
+    background-color: ${({ theme }) => theme.color.bg};
+    ${'' /* background-color:blue; */}
+    box-shadow: ${({ theme}) => theme.color.shadowSupport};
+    transform: translateY(50%);
+
+    .heading-txt{
+        display:inline-flex;
+
+    }
+
+    h3{
+        font-size:1rem;
+    }
+    .btn-div{
+        ${'' /* background-color:yellow; */}
+        height:auto;
+
+        .btn{
+             display:inline-flex;
+             justify-content:center;
+             align-items:center;
+              height:2vh;
+              width:auto;
+
+            .btn-txt{
+                font-size:0.5rem;
+            }
+        }
+    }
+    .footer{
+ 
+     background-color:yellow;
+     .footer-container{
+        background-color:yellow;
+     }
+    
+   }
+}
+    
 `;
 export default Footer;

@@ -19,11 +19,11 @@ const MainHeader = styled.header`
     justify-content:center;
     align-self:center;
     background-color: pink;
-    height: fit-content;
-    width: fit-content;
+    height: 7rem;
+    width: auto;
     ${'' /* background-color:pink; */}
     left: 2%;
-    top:0%;
+    top: 1.5rem;
     ${'' /* margin-top:1%; */}
     ${'' /* margin-bottom:1%; */}
     ${'' /* padding-top:3px; */}
@@ -36,13 +36,6 @@ const Header = () => {
       <figure>
             <img  className= 'logo'src ='images/Luxxy.png' alt = 'my-logo-img'/>
        </figure>
-        
-
-      
-      {/* <Nav> */}
-        {/* <NavLink to = "/">
-          <img  src= "./images/Luxxy.png"  alt="my logo img" />
-        </NavLink> */}
       <Nav />
     </MainHeader>
   );

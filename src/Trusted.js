@@ -6,7 +6,7 @@ const Trusted = () =>
 {
     return(
 
-            <Wrapper>
+            <Wrapper className="wrapper">
               <div className="brand-section">
                 <div className="container">
                   <h3>Trusted by 1000+ conpanies</h3>
@@ -74,19 +74,21 @@ padding: 9rem 0;
 
   @media(max-width: ${({theme}) => theme.media.mobile})
   {
-    background-color:white;
+    ${'' /* .wrapper{
+
+    background-color:red;
+    margin-top:auto;
+    margin-bottom:auto;
+    position:relative;
+
+    } */}
     .brand-section{
       background-color:white;
-      ${'' /* background-color:${({ theme}) => theme.color.black}; */}
-      ${'' /* padding:0;
-      margin-top:10vh;
-     margin-bottom:10vh; */}
-
     }
     .brand-slider-container {
         display: grid;
         grid-direction:row;
-        ${'' /* background-color:purple; */}
+       
         margin-left:0;
         grid-template-columns: repeat(2, 1fr); /* Fixed the syntax error here */
         text-align: center;
@@ -95,26 +97,22 @@ padding: 9rem 0;
         gap:5rem;
        align-items:center;
       }
-      ${'' /* .brand-section{
-        position:absolute;
-        background-color:brown;
-
-      } */}
+    
       .container{
         display:grid;
         grid-direction:row;
-        ${'' /* flex-direction:flex-start; */}
+     
         height:auto;
         width:100%;
         margin-top:110vh;
-        ${'' /* margin-top:5vh; */}
+      
         margin-bottom:10vh;
         align-items:center;
         align-content:center;
         background-color: ${({ theme}) => theme.color.bg};
 
         h3{
-          ${'' /* background-color:blue; */}
+       
           height:auto;
           width:100%;
           text-align:center;

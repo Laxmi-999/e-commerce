@@ -7,6 +7,7 @@ import styled from "styled-components";
   color: rgb(255 255 255);
   padding: 1.4rem 2.4rem;
   border: none;
+  border-radius:1rem;
   text-transform: uppercase;
   text-align: center;
   cursor: pointer;

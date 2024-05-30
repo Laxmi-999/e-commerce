@@ -5,6 +5,8 @@ import Trusted from "./Trusted";
 import Services from "./Services";
 import Footer from  "./Footer";
 import FeaturedProduct from "./FeaturedProduct";
+import styled from "styled-components";
+
 
 const Home = () =>
 {
@@ -13,11 +15,12 @@ const Home = () =>
     };
     return(
         <>   
-                <HeroSection  myData = {data}/>
+                <HeroSection   myData = {data}/>
                 <FeaturedProduct />
-                <Services />
-                <Trusted />
-                
+                <Wrapper>
+                    <Services />
+                    <Trusted />
+                </Wrapper>
 
         </>
       
@@ -26,5 +29,18 @@ const Home = () =>
     );
         
 };
+const Wrapper = styled.section`
+
+  @media(max-width: ${({theme}) => theme.media.mobile})
+  {
+    background-color:red;
+    align-items:center;
+    justify-content:space-between;
+    padding:1rem;
+    height:100%;
+    width:auto;
+    position:absolute;
+
+}`;
 
 export default Home;

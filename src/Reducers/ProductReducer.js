@@ -46,7 +46,7 @@ const ProductReducer = (state, action) => {
       };
     case "SET_SINGLEPRODUCT_DATA":
       console.log("going through");
-
+      
       console.log("data is"+ action.payload);
       const data = {
         ...state,

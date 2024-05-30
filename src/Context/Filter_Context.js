@@ -11,9 +11,12 @@ const initialState = {
   sorting_value: "lowest",
   filters: {
     text: "",
-    category:"all",
-    company:"all",
-    color:"all"
+    category: "all",
+    company: "all",
+    color: "All",
+    price: 0,
+    minPrice:0,
+    maxPrice:0
   },
 };
 
@@ -33,12 +36,11 @@ export const FilterContextProvider = ({ children }) => {
   };
 
   // sorting function
-   const sorting = (event) =>
-   {
+  const sorting = (event) => {
     let userValue = event.target.value;
     console.log(userValue);
-    dispatch({ type:"GET_SORT_VALUE",  payload:userValue });
-   };
+    dispatch({ type: "GET_SORT_VALUE", payload: userValue });
+  };
 
   // update the filter values
   const updateFilterValue = (event) => {
@@ -47,11 +49,15 @@ export const FilterContextProvider = ({ children }) => {
 
     return dispatch({ type: "UPDATE_FILTERS_VALUE", payload: { name, value } });
   };
+  //to clear the filters
+  const clearFilter = () => {
+    dispatch({type: "CLEAR_FILTER"});
+  }
 
   // to sort the product
   useEffect(() => {
     dispatch({ type: "FILTER_PRODUCTS" });
-    
+
     dispatch({ type: "SORTING_PRODUCTS" });
   }, [products, state.sorting_value, state.filters]);
   // console.log(sorting_value);
@@ -69,6 +75,7 @@ export const FilterContextProvider = ({ children }) => {
         setListView,
         sorting,
         updateFilterValue,
+        clearFilter 
       }}>
       {children}
     </FilterContext.Provider>
