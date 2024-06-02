@@ -119,6 +119,15 @@ const Wrapper = styled.section`
     justify-content:space-between;
     gap:2rem;
     align-items:center;
+
+    @media(max-width:768px){
+      ${'' /* background-color:pink; */}
+    }
+    @media(max-width:480px){
+      background-color:red;
+
+    }
+
   }
   .grid-two-column{
     ${'' /* background-color:pink; */}
@@ -203,8 +212,6 @@ const Wrapper = styled.section`
     justify-content: center;
     align-items: center;
   }
-  @media (max-width: ${({ theme }) => theme.media.mobile}) {
-    padding: 0 2.4rem;
-  }
+  
 `;
 export default SingleProduct;

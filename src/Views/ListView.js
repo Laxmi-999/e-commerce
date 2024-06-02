@@ -130,6 +130,17 @@ const Wrapper = styled.section`
       color: #fff;
     }
   }
+  @media (max-width: 768px) {
+
+  .btn-main{
+    padding:0.5rem;
+    margin-top:5px;
+    margin-bottom:5px;
+    font-size:1rem;
+
+  }
+  
+}
 `;
 
 

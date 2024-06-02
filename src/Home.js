@@ -33,7 +33,6 @@ const Wrapper = styled.section`
 
   @media(max-width: ${({theme}) => theme.media.mobile})
   {
-    background-color:red;
     align-items:center;
     justify-content:space-between;
     padding:1rem;

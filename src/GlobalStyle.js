@@ -121,7 +121,6 @@ ${"" /* resuable code section  */}
       margin-bottom: 6rem;
       text-transform: capitalize;
     }
-
      .intro-data {
       margin-bottom: 0;
       text-transform: uppercase;

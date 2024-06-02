@@ -77,16 +77,16 @@ const Wrapper = styled.section`
     ${'' /* background-color: brown; */}
   }
 
-  @media (max-width: ${({ theme }) => theme.media.mobile}) {
+  ${'' /* @media (max-width: ${({ theme }) => theme.media.mobile}) {
     display: flex;
     flex-direction: column;
-    order: 1;
+    order: 2;
 
     .grid-four-column {
       grid-template-rows: 1fr;
       grid-template-columns: repeat(4, 1fr);
     }
-  }
+  } */}
 `;
 
 export default MyImages;

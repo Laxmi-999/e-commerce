@@ -73,6 +73,8 @@ const StyledNav = styled.nav`
     }
 
     @media(max-width: ${({ theme }) => theme.media.mobile}) {
+        background-color:black;
+        
         .mobile-navbar-btn {
             display: inline-block;
             z-index: 9999;
@@ -102,22 +104,31 @@ const StyledNav = styled.nav`
             position: absolute;
             top: 0;
             left: 0;
-            background-color: white;
+            text:white;
+            background-color: #e74c3c;
+            border:black;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             visibility: hidden;
+            
             opacity: 0;
             transform: translateX(100%);
-            transition: all 3s linear;
+            transition: all 1s linear;
+
+            .navbar-li{
+                
+            }
         }
+       
        
         .active .navbar-lists {
             ${'' /* background-color: pink; */}
             height: 100vh;
             width: 100vh;
-            background-color: transparent;
+            background-color:#e74c3c;
+            border:black;
             position: absolute;
             top: 30vh;
             visibility: visible;
@@ -127,7 +138,7 @@ const StyledNav = styled.nav`
             justify-content: center;
             ${'' /* align-items:center; */}
             transform-origin: right;
-            transition: all 3s linear;
+            transition: all 1s linear;
             ${'' /* background-color: pink; */}
 
             .navbar-link {
@@ -167,33 +178,38 @@ const Nav = () => {
             </figure>
             <div className={menuIcons ? "navbar active" : "navbar"}>
                 <ul className="navbar-lists">
-                    <li>
+                    <li >
                     <NavLink
                     to="/"
+                    className = "navbar-li"
                     onClick={() => { setMenuIcons(false); setMenuIndex(0); }}
                     style={({ isActive }) => getComponentStyle(isActive)}
                 >
                     Home
                 </NavLink>
                     </li>
-                    <li>
+                    <li >
                         <NavLink  to="/about"
-                             onClick={() => { setMenuIcons(false); setMenuIndex(0); }}
+                           
+                           className = "navbar-li"  onClick={() => { setMenuIcons(false); setMenuIndex(0); }}
                         style={({ isActive }) => getComponentStyle(isActive)}>About</NavLink>
                     </li>
-                    <li>
+                    <li >
                         <NavLink  to="/contact"
-                              onClick={() => { setMenuIcons(false); setMenuIndex(0); }}
+                           
+                           className = "navbar-li"   onClick={() => { setMenuIcons(false); setMenuIndex(0); }}
                               style={({ isActive }) => getComponentStyle(isActive)} >Contact</NavLink>
                     </li>
-                    <li>
+                    <li >
                         <NavLink  to="/product"
-                            onClick={() => { setMenuIcons(false); setMenuIndex(0); }}
+                           
+                           className = "navbar-li" onClick={() => { setMenuIcons(false); setMenuIndex(0); }}
                             style={({ isActive }) => getComponentStyle(isActive)} >Product</NavLink>
                     </li>
-                    <li>
-                        <NavLink className="navbar-link nav-li-active trolly--link" to="/cart"
-                             onClick={() => { setMenuIcons(false); setMenuIndex(0); }}
+                    <li >
+                        <NavLink className="navbar-link nav-li-active trolly--link navbar-li" to="/cart"
+                           
+                            onClick={() => { setMenuIcons(false); setMenuIndex(0); }}
                              style={({ isActive }) => getComponentStyle(isActive)}
                         >
                             <FiShoppingCart className="cart-trolly" />

@@ -40,7 +40,7 @@ const FilterSection = () => {
 
 
   return (
-    <Wrapper>
+    <Wrapper className="wrapper">
       <div className="filter-search">
         <form onSubmit={(e) => e.preventDefault()}>
           <input
@@ -54,7 +54,7 @@ const FilterSection = () => {
       </div>
       <div className="filter-category">
         <h3>category</h3>
-        <div>
+        <div className="category-items">
           {categoryOnlyData.map((currElem, index) => {
             return (
               <button
@@ -62,7 +62,7 @@ const FilterSection = () => {
                 type="button"
                 name="category"
                 value={currElem}
-                className={currElem === category ? "active" : ""}
+                className={`${currElem === category ? "active" : ""} cat-items` }
                 onClick={updateFilterValue}
               >{currElem}
 
@@ -75,7 +75,7 @@ const FilterSection = () => {
       <div className="filter-company">
         <h3>company</h3>
         <form action="#">
-          <label htmlFor="company"></label>
+          <label  className='company-select' htmlFor="company"></label>
           <select
             name="company"
             id="company"
@@ -122,7 +122,7 @@ const FilterSection = () => {
                   value={curColor}
                   name="color"
                   style={{ backgroundColor: curColor }}
-                  className={color === curColor ? "btnStyle active" : "btnStyle"}
+                  className = {` ${color === curColor ? "btnStyle active" : "btnStyle"} color-menu`}
                   onClick={updateFilterValue}>
                   {color === curColor ? <FaCheck className="checkStyle" /> : null}
                 </button>
@@ -134,7 +134,7 @@ const FilterSection = () => {
       </div>
       <div className="fileter_price">
        <h3>Price</h3>
-        <p> 
+        <p className="format-price"> 
            <FormatPrice  price = {price} />
         </p>
         <input
@@ -143,11 +143,12 @@ const FilterSection = () => {
           min={minPrice}
           max={maxPrice}
           value={price}
+          className="price-range"
           onChange={updateFilterValue}
         />
       </div>
       <div className="filter-clear">
-       <button className="btn rounded-[1rem]" onClick={clearFilter}>Clear Filters</button>
+       <button className="btn clr-filter-btn rounded-[1rem]" onClick={clearFilter}>Clear Filters</button>
 
       </div>
     </Wrapper>
@@ -159,6 +160,8 @@ margin:5rem 0;
 display:flex;
 flex-direction:column;
 gap:3rem;
+
+
 
 h3 {
     padding: 2rem 0;
@@ -286,6 +289,144 @@ h3 {
   background-color: #ec7063;
   color: #000;
   }
+
+  @media (max-width: 768px) {
+
+      margin:5rem 0;
+      display:flex;
+      flex-direction:row;
+      justify-content:space-between;
+      justify:start;
+      align:center;
+      ${'' /* background-color:red; */}
+      width:auto;
+
+      .filter-search {
+    input {
+      margin-top:15px;
+      align:center;
+      justify:center;
+      font-size:1rem
+      padding: 0.6rem 1rem;
+      width: 15vh;
+    }
+  }
+  .filter-category {
+
+    h3{
+      font-weight:bold;
+      justify:start;
+      margin-left:auto;
+      ${'' /* background-color:red; */}
+      padding:0;
+    }
+    .cat-items {
+      display: flex;
+      font-size:1rem;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.4rem;
+    }
+  }
+  .filter-colors{
+    
+    h3{
+      padding:0;
+      font-weight:bold;
+
+    
+    }
+    .color-all--style{
+        font-size:1rem;
+      }
+      .btnStyle {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #000;
+    border-radius: 50%;
+    margin-left: 0.5rem;
+   
+
+  }
+  .checkStyle {
+    font-size: 1rem;
+    justify:center;
+    
+  }
+  }
+    .filter-color-style{
+      ${'' /* background-color:red; */}
+      justify-content:start;
+      width:auto;
+    }
+    .filter-company {
+
+      h3{
+        font-weight:bold;
+        ${'' /* background-color:red; */}
+        padding:0;
+      }
+
+    .filter-compnay--select{
+
+    cursor:pointer;
+    font-size:1rem;
+    height:auto;
+    width:auto;
+    ${'' /* background-color:yellow; */}
+
+    .company-selection--option{
+
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    cursor:pointer;
+    height:1.5rem;
+    }
+   
+
+    } 
+  }
+  .fileter_price{
+    h3{
+      font-weight:bold;
+      padding:0;
+    }
+    
+     
+      
+  }
+    .format-price{
+    font-size:1rem;
+  }
+
+  .filter-clear .btn {
+  height:auto;
+  width:auto;
+  padding:5px;
+  font-size: 1.5rem;
+  }
+  
+  }
+
+  @media(max-width:1024px)
+{
+  flex-direction:column;
+
+  .filter-category {
+
+h3{
+  font-size:1rem;
+  font-weight:bold;
+  justify:start;
+  margin-left:auto;
+  ${'' /* background-color:red; */}
+  padding:0;
+}
+${'' /* 
+ */}
+}
+
+}
 `;
 
 export default FilterSection;

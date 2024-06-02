@@ -78,9 +78,26 @@ const Wrapper = styled.section`
  }
  .icon{
     font-size:2.5rem;
+
+    @media(max-width:768px){
+      font-size:2rem;
+    }
+    @media(max-width:480px){
+      font-size:1.5rem;
+    }
  }
 .product-data p{
     font-size:2.5rem;
+
+    @media(max-width:768px) {
+     
+      font-size:2rem;
+
+    }
+    @media (max-width: 480px)  {
+      font-size:1.5rem;
+
+    }
 
 }
  .active{
@@ -92,11 +109,25 @@ const Wrapper = styled.section`
     cursor:pointer;
     font-size:2rem;
 
+    @media(max-width:768px){
+      font-size:1.5rem;
+    }
+    @media(max-width:768px){
+      font-size:1rem;
+    }
+
     .sort-selection-option{
     font-size: 2.5rem;
     padding: 0.5rem 0;
     cursor:pointer;
     height:2rem;
+
+    @media(max-width:768px){
+      font-size:1.5rem;
+    }
+    @media(max-width:768px){
+      font-size:1rem;
+    }
   }
  };
 `;

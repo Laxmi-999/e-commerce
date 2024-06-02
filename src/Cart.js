@@ -19,12 +19,12 @@ const Cart = () => {
   return (
     <Wrapper>
       <div className="container">
-        <div className="cart_heading    grid grid-five-column">
-          <p className="font-bold text-[2rem]">Items</p>
-          <p className="cart_hide font-bold text-[2rem]">Price</p>
-          <p className="font-bold text-[2rem]">Qantity</p>
-          <p className="cart_hide font-bold text-[2rem]">SubTotal</p>
-          <p className="font-bold text-[2rem]">Remove</p>
+        <div className="cart-heading grid grid-five-column">
+          <p className=" cart-heading-items font-bold lg:text-[3rem] md:text-[1.5rem] md:font-bold ">Items</p>
+          <p className="cart-heading-items cart_hide font-bold lg:text-[3rem] md:text-[1.5rem] md:font-bold  ">Price</p>
+          <p className=" cart-heading-items font-bold lg:text-[2.5rem] md:text-[1.5rem] md:font-bold  ">Qantity</p>
+          <p className=" cart-heading-items cart_hide font-bold lg:text-[2.5rem] md:text-[1.5rem] md:font-bold  ">SubTotal</p>
+          <p className="cart-heading-items cart_hide font-bold lg:text-[2.5rem] md:text-[1.5rem] md:font-bold  ">Remove</p>
         </div>
         <hr />
         <div className="cart-items">
@@ -76,6 +76,7 @@ const EmptyDiv = styled.div`
   place-items: center;
   height: 50vh;
 
+
   h3 {
     font-size: 4.2rem;
     text-transform: capitalize;
@@ -85,6 +86,62 @@ const EmptyDiv = styled.div`
 
 const Wrapper = styled.section`
   padding: 9rem 0;
+
+
+  .cart-two-button {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 2.2rem;
+
+      Button{
+        text-size:3rem;
+        padding:1.5rem;
+
+      }
+    }
+    .order-total--amount {
+    width: 100%;
+    height:auto;
+    margin: 4.8rem 0;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    .order-total--subdata {
+      border: 0.1rem solid #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      padding: 3.2rem;
+    }
+  
+    div {
+      display: flex;
+      gap: 3.2rem;
+      justify-content: space-between;
+      
+    }
+
+    div:last-child {
+      background-color: #fafafa;
+    }
+
+    div p:last-child {
+      text-size:2rem;
+      font-weight: bold;
+      color: ${({ theme }) => theme.color.heading};
+    }
+  }
+
+
+  @media(max-width:768px){
+    ${'' /* background-color:pink; */}
+    padding:5rem 0;
+
+  }
 
   .grid-four-column {
     grid-template-columns: repeat(4, 1fr);
@@ -97,7 +154,8 @@ const Wrapper = styled.section`
   }
   .cart-heading {
     text-align: center;
-    text-transform: uppercase;
+    text-transform: capitalize;
+
   }
   hr {
     margin-top: 1rem;
@@ -219,7 +277,38 @@ const Wrapper = styled.section`
     }
   }
 
-  @media (max-width: ${({ theme }) => theme.media.mobile}) {
+  @media(max-width:480px){
+     
+    
+
+
+    .cart-items{
+      justify-content:center;
+      align-items:center;
+      gap:5rem;
+
+    }
+    .cart-heading{
+      text-size:1rem;
+      font-weight:bold;
+      justify-content:center;
+      aling-items:center;
+      ${'' /* background-color:yellow; */}
+
+
+      .cart-heading-items{
+        text-size:1rem;
+        font-weight:bold;
+        ${'' /* background-color:blue; */}
+        width:10vh;
+        ${'' /* margin-left:1rem; */}
+
+      }
+    }
+
+  }
+
+  ${'' /* @media (max-width: ${({ theme }) => theme.media.mobile}) {
     .grid-five-column {
       grid-template-columns: 1.5fr 1fr 0.5fr;
     }
@@ -256,6 +345,6 @@ const Wrapper = styled.section`
         padding: 3.2rem;
       }
     }
-  }
+  } */}
 `;
 export default Cart;
