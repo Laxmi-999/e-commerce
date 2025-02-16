@@ -6,8 +6,8 @@ const AppContext = createContext();
 
 const API =
   //  "https://api.pujakaitem.com/api/products";
-  "http://localhost:3001/service";
-  "https://e-commerce-fawn-nu.vercel.app"
+  // "http://localhost:3001/service";
+  "https://e-commerce-fawn-nu.vercel.app";
 
 const initialState = {
   isLoading: false,
