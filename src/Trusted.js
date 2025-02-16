@@ -9,7 +9,7 @@ const Trusted = () =>
             <Wrapper className="wrapper">
               <div className="brand-section">
                 <div className="container">
-                  <h3>Trusted by 1000+ conpanies</h3>
+                  <h3 className="font-custom">Trusted by 1000+ conpanies</h3>
                   
                     <div className="brand-slider-container">
                       <div className="slide">

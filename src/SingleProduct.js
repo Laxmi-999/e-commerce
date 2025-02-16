@@ -62,41 +62,41 @@ const SingleProduct = () => {
                 <div className="product-data">
                    <h2>{name}</h2>
                    <Star  stars = {stars}  reviews = {reviews} />
-                    <p className="product-data-price">MRP:
+                    <p className="product-data-price font-custom">MRP:
                         <del>
                             <FormatPrice  price ={price+25000/100} />
                         </del>
                     </p>
-                    <p className="product-data-price product-data-real-price">
+                    <p className="product-data-price product-data-real-price font-custom">
                             Deal of the day:<FormatPrice  price ={price} />    
                     </p>
-                    <p>{Description}</p>
+                    <p className="font-custom">{Description}</p>
                      
                      <div className="product-data-warranty">
                        <div className="product-warranty-data">
                         <TbTruckDelivery className="warranty-icons" />
-                            <p>Free Delivery</p>
+                            <p className="font-custom">Free Delivery</p>
                        </div>
                        <div className="product-warranty-data">
                         <TbReplace className="warranty-icons" />
-                            <p>30 days Replacement</p>
+                            <p className="font-custom">30 days Replacement</p>
                        </div>
                        <div className="product-warranty-data">
                         <TbTruckDelivery className="warranty-icons" />
-                            <p>Luxxy Delivered</p>
+                            <p className="font-custom">Luxxy Delivered</p>
                        </div>
                         <div className="product-warranty-data">
                         <MdSecurity className="warranty-icons" />
-                             <p></p>2 years of warranty
+                             <p className="font-custom">2 years of warranty</p>
                        </div>
 
                      </div>
                      <div className="product-data-info">
-                      <p>Available: <span>{stock >0 ? "In Stock" : "Not Available"}</span></p>
-                       <p>
+                      <p className="font-custom">Available: <span>{stock >0 ? "In Stock" : "Not Available"}</span></p>
+                       <p className="font-custom"> 
                         ID:{ id}
                        </p>
-                       <p>
+                       <p className="font-custom">
                         Brand: {company}
                        </p>
                      </div>

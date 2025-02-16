@@ -20,11 +20,11 @@ const Cart = () => {
     <Wrapper>
       <div className="container">
         <div className="cart-heading grid grid-five-column">
-          <p className=" cart-heading-items font-bold lg:text-[3rem] md:text-[1.5rem] md:font-bold ">Items</p>
-          <p className="cart-heading-items cart_hide font-bold lg:text-[3rem] md:text-[1.5rem] md:font-bold  ">Price</p>
-          <p className=" cart-heading-items font-bold lg:text-[2.5rem] md:text-[1.5rem] md:font-bold  ">Qantity</p>
-          <p className=" cart-heading-items cart_hide font-bold lg:text-[2.5rem] md:text-[1.5rem] md:font-bold  ">SubTotal</p>
-          <p className="cart-heading-items cart_hide font-bold lg:text-[2.5rem] md:text-[1.5rem] md:font-bold  ">Remove</p>
+          <p className=" cart-heading-items font-bold lg:text-[3rem] md:text-[1.5rem] md:font-bold font-custom">Items</p>
+          <p className="cart-heading-items cart_hide font-bold lg:text-[3rem] md:text-[1.5rem] md:font-bold  mr-[4rem] font-custom ">Price</p>
+          <p className=" cart-heading-items font-bold lg:text-[2.5rem] md:text-[1.5rem] md:font-bold mr-[5rem]  font-custom">Qantity</p>
+          <p className=" cart-heading-items cart_hide font-bold lg:text-[2.5rem] md:text-[1.5rem] md:font-bold mr-[1rem] font-custom ">SubTotal</p>
+          <p className="cart-heading-items cart_hide font-bold lg:text-[2.5rem] md:text-[1.5rem] md:font-bold  font-custom">Remove</p>
         </div>
         <hr />
         <div className="cart-items">
@@ -36,9 +36,9 @@ const Cart = () => {
         <hr />
         <div className="cart-two-button">
           <NavLink to="/product">
-            <Button>Continue Shopping</Button>
+            <Button className="font-custom">Continue Shopping</Button>
           </NavLink>
-          <Button className="btn btn-clear"
+          <Button className="btn btn-clear font-custom"
             onClick={clearCart}>Clear Cart</Button>
 
         </div>
@@ -48,19 +48,19 @@ const Cart = () => {
         <div className="order-total--amount">
         <div className="order-total--subdata">
           <div>
-            <p>SubTotal:</p>
-            <p>
+            <p className="font-custom"> SubTotal:</p>
+            <p className="font-custom">
               <FormatPrice  price = {total_price}/>
             </p>
           </div>
           <div>
-            <p>Shipping Fee:</p>
-            <p><FormatPrice  price = {shipping_fee}/></p>
+            <p className="font-custom">Shipping Fee:</p>
+            <p className="font-custom"><FormatPrice  price = {shipping_fee}/></p>
           </div>
           <hr />
           <div>
-            <p>Order Total :</p>
-            <p><FormatPrice  price = {shipping_fee + total_price }/></p>
+            <p className="font-custom">Order Total :</p>
+            <p className="font-custom"><FormatPrice  price = {shipping_fee + total_price }/></p>
           </div>
 
         </div>

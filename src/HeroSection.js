@@ -93,23 +93,20 @@ const HeroSection = ({ myData }) =>{
        <div className="container mx-auto px-4 py-8">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="hero-section-data">
-            <p className="intro-data text-sm sm:text-base">welcome to</p>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">{name}</h1>
-            <p className="mt-4 text-base sm:text-lg">
-                If you've followed these steps and are still facing issues accessing 
-                the public folder in your React project, please provide more details about
-                your setup, error messages, or any specific problems you're encountering so 
-                that I can assist you further.
+            <p className="intro-data md:text-xl font-custom sm:text-base">welcome to</p>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold font-custom">{name}</h1>
+            <p className="mt-4 text-base sm:text-lg md:text-[1.5rem] font-custom text-justify">
+            Welcome to our Electronics Store, where innovation meets excellence! Discover a curated collection of cutting-edge gadgets—from sleek smartphones and high-performance laptops to immersive audio systems and smart home devices—that are designed to transform your digital lifestyle. Whether you're upgrading your tech for work, play, or everyday convenience, our thoughtfully selected electronics empower you to stay connected, entertained, and ahead of the curve.
             </p>
             <NavLink to="/shop">
-                <button className="mt-6 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300">
+                <button className="mt-6 font-custom px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300">
                     Shop Now
                 </button>
             </NavLink>
         </div>
         <div className="hero-section-image">
             <figure>
-                <img src="images/hero-img.jpg" alt="hero-image" className="w-full h-auto rounded shadow-lg" />
+                <img src="https://media.istockphoto.com/id/525491138/photo/man-shopping-at-a-tech-store.jpg?s=612x612&w=0&k=20&c=SS0N046l1pGQFqDH8pkBU99E1bpUJaxPhjBbaDJK16k=" alt="hero-image" className="w-full h-auto rounded shadow-lg" />
             </figure>
         </div>
     </div>

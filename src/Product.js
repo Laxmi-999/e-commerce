@@ -16,12 +16,12 @@ const Product = ( curElem ) =>
         <div className="card ">
                 <figure>
                     <img className = '' src = {img} alt ={name} />
-                    <figcaption className="caption">{category}</figcaption>
+                    <figcaption className="caption font-custom font-bold">{category}</figcaption>
                 </figure>
         <div className="card-data">
-          <div className="card-data-flex">
-            <h3>{name}</h3>
-            <p className="card-data--price">{<FormatPrice price = {price}/>}</p>
+          <div className="card-data-flex ">
+            <h3 className="font-custom">{name}</h3>
+            <p className="card-data--price font-custom">{<FormatPrice price = {price}/>}</p>
           </div>
 
             </div>

@@ -29,7 +29,7 @@ const AddToCart = ({product}) =>{
     return(
     <Wrapper>
       <div className="colors">
-        <p>colors:
+        <p className="font-custom"> colors:
             {colors.map(( currColor, index) =>{
                 return(
                     <button key = {index} style= {{backgroundColor:currColor}}
@@ -52,7 +52,7 @@ const AddToCart = ({product}) =>{
         onClick = {() => AddToCart(id, color, amount, product)
         }>
           
-        <Button> Add To Cart </Button>
+        <Button className="font-custom">  Add To Cart </Button>
 
         </NavLink>
      </Wrapper>   
@@ -72,7 +72,8 @@ const Wrapper = styled.section`
     height: 2rem;
     background-color: #000;
     border-radius: 50%;
-    margin-left: 1rem;
+    margin-left: 1.5rem;
+
     border: none;
     outline: none;
     opacity: 0.5;
@@ -85,10 +86,15 @@ const Wrapper = styled.section`
 
   .active{
     opacity:5;
+    padding-left:5px;
+    padding-right:5px;
   }
 
   .checkStyle {
-    font-size: 1rem;
+    font-size: 1.2rem;
+    align:center;
+    padding-left:auto;
+    padding-right:auto;
     color: #fff;
   }
 

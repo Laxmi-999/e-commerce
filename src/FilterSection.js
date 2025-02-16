@@ -53,7 +53,7 @@ const FilterSection = () => {
         </form>
       </div>
       <div className="filter-category">
-        <h3>category</h3>
+        <h3 className="font-custom">category</h3>
         <div className="category-items">
           {categoryOnlyData.map((currElem, index) => {
             return (
@@ -62,7 +62,7 @@ const FilterSection = () => {
                 type="button"
                 name="category"
                 value={currElem}
-                className={`${currElem === category ? "active" : ""} cat-items` }
+                className={`font-custom ${currElem === category ? "active" : ""} cat-items` }
                 onClick={updateFilterValue}
               >{currElem}
 
@@ -73,17 +73,17 @@ const FilterSection = () => {
         </div>
       </div>
       <div className="filter-company">
-        <h3>company</h3>
+        <h3 className="font-custom">company</h3>
         <form action="#">
-          <label  className='company-select' htmlFor="company"></label>
+          <label  className='company-select font-custom' htmlFor="company"></label>
           <select
             name="company"
             id="company"
-            className="filter-compnay--select"
+            className="filter-compnay--select font-custom"
             onClick={updateFilterValue}>
             {companyOnlyData.map((currElem, index) => {
               return (
-                <option key={index} value={currElem} id="company" className="company-selection--option">
+                <option key={index} value={currElem} id="company" className="company-selection--option font-custom">
                   {currElem}
                 </option>
               );
@@ -93,7 +93,7 @@ const FilterSection = () => {
         </form>
       </div>
       <div className="filter-colors colors">
-        <h3>colors</h3>
+        <h3 className="font-custom">colors</h3>
         <div className="filter-color-style">
           {colorsOnlyData.map((curColor, index) => {
 
@@ -108,7 +108,7 @@ const FilterSection = () => {
                   type="button"
                   value={curColor}
                   name="color"
-                  className="color-all--style"
+                  className="color-all--style font-custom"
                   onClick={updateFilterValue}>
                   all
                 </button>
@@ -122,7 +122,7 @@ const FilterSection = () => {
                   value={curColor}
                   name="color"
                   style={{ backgroundColor: curColor }}
-                  className = {` ${color === curColor ? "btnStyle active" : "btnStyle"} color-menu`}
+                  className = {`font-custom ${color === curColor ? "btnStyle active" : "btnStyle"} color-menu`}
                   onClick={updateFilterValue}>
                   {color === curColor ? <FaCheck className="checkStyle" /> : null}
                 </button>
@@ -133,8 +133,8 @@ const FilterSection = () => {
         </div>
       </div>
       <div className="fileter_price">
-       <h3>Price</h3>
-        <p className="format-price"> 
+       <h3 className="font-custom">Price</h3>
+        <p className="format-price font-custom"> 
            <FormatPrice  price = {price} />
         </p>
         <input
@@ -143,12 +143,12 @@ const FilterSection = () => {
           min={minPrice}
           max={maxPrice}
           value={price}
-          className="price-range"
+          className="price-range font-custom"
           onChange={updateFilterValue}
         />
       </div>
       <div className="filter-clear">
-       <button className="btn clr-filter-btn rounded-[1rem]" onClick={clearFilter}>Clear Filters</button>
+       <button className="btn clr-filter-btn rounded-[1rem] font-custom" onClick={clearFilter}>Clear Filters</button>
 
       </div>
     </Wrapper>

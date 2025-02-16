@@ -16,7 +16,7 @@ const Services = () =>
            <div className="services">
              <div className="service-data">
                 <TbTruckDelivery  className=" icon icon-1"/>
-                 <h3>upper fast and free delivery</h3>
+                 <h3 className="font-custom">upper fast and free delivery</h3>
              </div>
 
            </div>
@@ -25,19 +25,19 @@ const Services = () =>
 
                     <div className="service-data-2">
                         <MdSecurity  className='icon icon-2'/>
-                        <h3>non-contact shipping</h3>
+                        <h3 className="font-custom">non-contact shipping</h3>
                     </div>
             
                     <div className="service-data-2">
                         <GiReceiveMoney className='icon icon-3'/>
-                        <h3>non-contact shipping</h3>
+                        <h3 className="font-custom">non-contact shipping</h3>
                    </div>
              </div>
            </div>
            <div className="services">
              <div className="service-data">
                 <TbTruckDelivery  className="icon icon-4"/>
-                <h3>Money Back Gurantee</h3>
+                <h3 className="font-custom">Money Back Gurantee</h3>
              </div>
 
            </div>

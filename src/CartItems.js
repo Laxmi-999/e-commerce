@@ -27,25 +27,25 @@ const CartItems = ( {id, name, color, image, price, amount }) => {
           </figure>
         </div>
         <div className="cart-color">
-          <p className="name">{name}</p>
-          <div className="color">
-            <p className="">color:</p>
+          <p className="name font-custom">{name}</p>
+          <div className="color inline-flex">
+            <p className="font-custom">color:</p>
             <div
-              className="color-style"
+              className="w-8 h-8 flex items-center justify-center text-white rounded-full"
               style={{ backgroundColor: color, color: color }}></div>
           </div>
         </div>
       </div> 
       {/* price   */}
       <div className="cart-hide-price">
-        <p className="">
+        <p className="font-custom">
          {/* {price} */}
-         <FormatPrice  className= "cart-hide" price={price} />
+         <FormatPrice  className= "cart-hide " price={price} />
         </p>
       </div>
 
           {/* quantity */}
-            <CartAmountToggle 
+            <CartAmountToggle  className = "font-custom"
                 amount = {amount}
                 setIncrement = {() => setIncrement(id)}
                 setDecrement= {() => setDecrement(id) } /> 
@@ -55,7 +55,7 @@ const CartItems = ( {id, name, color, image, price, amount }) => {
             <div className="cart_hide-subTotal">
           
                  {/* {price * amount } */}
-                  <p className =  "" ><FormatPrice  className ="format-price" price = { price * amount } /></p>
+                  <p className =  "font-custom" ><FormatPrice  className ="format-price" price = { price * amount } /></p>
             </div>
             <div className="cart-hide-trash">
                 <FaTrash  onClick={()=> removeItem(id)} />

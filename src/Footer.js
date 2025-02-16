@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Button from "./Styles/Button";
 import { FaDiscord,FaYoutube,FaInstagram } from "react-icons/fa";
+import { FaLinkedin, FaFacebook, FaSquareTwitter } from "react-icons/fa6";
 
 
 const Footer = () => {
@@ -11,14 +12,14 @@ const Footer = () => {
 <>
         <Wrapper className="wrapper">
             <div className=" contact-short">
-            <div className="grid  grid-two-columns">
+            <div className="grid  grid-two-columns mt-[3rem]">
                 <div className="heading-txt" >
-                    <h3>Ready to get started?</h3>
-                    <h3>Talk to us today</h3>
+                    <h3 className="font-custom text-[1.5rem">Ready to get started?</h3>
+                    <h3 className="font-custom">Talk to us today</h3>
                 </div>
                 <div className="btn-div">
                     <Button className="btn">
-                        <NavLink to ="/contact" className="btn-txt">Get started</NavLink>
+                        <NavLink to ="/contact" className="btn-txt font-custom">Get started</NavLink>
                     </Button>
                 </div>
 
@@ -26,51 +27,58 @@ const Footer = () => {
             </div>
         
         {/* main footer */}
-        <footer className="footer">
+        <footer className="footer mt-[2rem]">
             <div className="footer-container grid grid-four-columns">
             <div className="footer_about">
-                <h3> Luxxy Store</h3>
-                <p> Lorem Ipsum is simply 
+                <h3 className="font-custom">Luxxy Store</h3>
+                <p className="font-custom text-[1.9rem"> Lorem Ipsum is simply 
                 sample text for the developers
                 and desingers.</p>
             </div>
             <div className="footer_Subscribe">
-                <h3>Subscribe to get updates</h3>
+                <h3 className="font-custom">Subscribe to get updates:</h3>
                 <input  type = "email" placeholder="your email"/>
                 <input type = "submit" value = "Subscribe"/>
             </div>
             <div className=" footer_follow">
-                <h3>Follow Us</h3>
-            <div className="social_icons">
-                    <div >
-                        <FaDiscord className = "icons"/>
-                        </div>
-                        <div >
-                        <FaInstagram className = "icons"/>
-                        </div>
-                        <div >
+                <h3 className="font-custom">Follow Us:</h3>
+            <div className="social_icons ">
+                    <div className="flex ">
+                        <FaDiscord className = "icons mr-[1rem]"/>
+                        <FaInstagram className = "icons mr-[1rem]"/>
                         <a href = "https://youtu.be/Rtapgrl7A5Y?si=RuoeywWrjDK_2rgC"
                         target = "_blank">
                         <FaYoutube className = "icons"/>
                         </a>
-                        </div>
                     </div>
-            </div>
+                    <div className="flex ">
+                         <FaLinkedin className = "icons mr-[1rem]" />
+                         <FaSquareTwitter className="icons mr-[1rem]" />
+                         <FaFacebook className = "icons"/>
+                    </div>
+            
+                </div>
+            </div>  
+
+
             <div className="footer_contact">
-                <h3> contact Us</h3>
+                <h3 className="font-custom"> contact Us:</h3>
                 {/* <a href = "tel:9824543632">9824543632</a> */}
-                <h3> 9824543632</h3>
+                <p className="font-custom font-normal text-[1.9rem"> 9824543632</p>
+                <p className="font-custom text-[1.9rem]"> Bharatpur-10,Chitwan</p>
+
+                
             </div>
             </div>
             {/* bottom-footer */}
             <div className = "bottom-footer-section">
-            <hr />
+            <hr className="mt-[6rem]" />
             <div className="container grid grid-two-columns">
-            <p>@{new Date().getFullYear()} LuxxyStore  All Right Reserve</p>
+            <p className="font-custom text-[1.5rem">@{new Date().getFullYear()} LuxxyStore  All Right Reserve</p>
 
             <div>
-                <p>Privacy Policy</p>
-                <p> Terms And Conditions</p>
+                <p className="font-custom text-[1.5rem">Privacy Policy</p>
+                <p className="font-custom text-[1.5rem"> Terms And Conditions:</p>
             </div>
             </div>
             </div>
@@ -146,7 +154,7 @@ ${'' /* margin-bottom:10%; */}
     gap:1rem;
 }
 .social_icons{
-    display:inline-flex;
+    display:inline-grid;
     gap:2rem;
 
     .icons{

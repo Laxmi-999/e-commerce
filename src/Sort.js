@@ -27,7 +27,7 @@ const Sort = () => {
       </div>
         {/* second-column */}
         <div className="product-data">
-            <p>{`${filter_products.length} products availaible`}</p>
+            <p className="font-custom">{`${filter_products.length} products availaible`}</p>
         </div>
         {/* third-column */}
         <div className="sort-selection">
@@ -37,14 +37,14 @@ const Sort = () => {
                name = "sort"
                id="sort"
                onChange = {sorting}
-               className="sort-selection--style">
-               <option className="sort-selection-option" value = "lowest">price(lowest)</option>
+               className="sort-selection--style font-custom">
+               <option className="sort-selection-option font-custom" value = "lowest">price(lowest)</option>
                <option value = "#" disabled></option>
-               <option  className="sort-selection-option" value = "highest">price(highest)</option>
+               <option  className="sort-selection-option font-custom" value = "highest">price(highest)</option>
                <option  value = "#" disabled></option>
-               <option className="sort-selection-option" value = "a-z">price(a-z)</option>
+               <option className="sort-selection-option font-custom" value = "a-z">price(a-z)</option>
                <option value = "#" disabled></option>
-               <option className="sort-selection-option" value = "z-a">price(z-a)</option>
+               <option className="sort-selection-option font-custom" value = "z-a">price(z-a)</option>
                </select>
 
             </form>

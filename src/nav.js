@@ -176,12 +176,12 @@ const Nav = () => {
             <figure>
                 {/* <img src='images/Luxxy.png' alt='my-store-logo' /> */}
             </figure>
-            <div className={menuIcons ? "navbar active" : "navbar"}>
+            <div className={menuIcons ? "navbar active" : "navbar" }>
                 <ul className="navbar-lists">
                     <li >
                     <NavLink
                     to="/"
-                    className = "navbar-li"
+                    className = "navbar-li font-custom"
                     onClick={() => { setMenuIcons(false); setMenuIndex(0); }}
                     style={({ isActive }) => getComponentStyle(isActive)}
                 >
@@ -191,19 +191,19 @@ const Nav = () => {
                     <li >
                         <NavLink  to="/about"
                            
-                           className = "navbar-li"  onClick={() => { setMenuIcons(false); setMenuIndex(0); }}
+                           className = "navbar-li font-custom"  onClick={() => { setMenuIcons(false); setMenuIndex(0); }}
                         style={({ isActive }) => getComponentStyle(isActive)}>About</NavLink>
                     </li>
                     <li >
                         <NavLink  to="/contact"
                            
-                           className = "navbar-li"   onClick={() => { setMenuIcons(false); setMenuIndex(0); }}
+                           className = "navbar-li font-custom"   onClick={() => { setMenuIcons(false); setMenuIndex(0); }}
                               style={({ isActive }) => getComponentStyle(isActive)} >Contact</NavLink>
                     </li>
                     <li >
                         <NavLink  to="/product"
                            
-                           className = "navbar-li" onClick={() => { setMenuIcons(false); setMenuIndex(0); }}
+                           className = "navbar-li font-custom" onClick={() => { setMenuIcons(false); setMenuIndex(0); }}
                             style={({ isActive }) => getComponentStyle(isActive)} >Product</NavLink>
                     </li>
                     <li >
