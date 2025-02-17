@@ -7,7 +7,7 @@ const AppContext = createContext();
 const API =
   //  "https://api.pujakaitem.com/api/products";
   // "http://localhost:3001/service";
-  "https://ecomapi-htt5.vercel.app/products";
+  "https://ecomapi-brown.vercel.app/service";
 
 const initialState = {
   isLoading: false,
@@ -25,7 +25,7 @@ const AppProvider = ({ children }) => {
   const getProducts = async (url) => {
     dispatch({ type: "SET_LOADING" });
     try {
-      const res = await axios.get(url, { withCredentials: true });
+      const res = await axios.get(url);
       const products = await res.data;
       dispatch({ type: "SET_API_DATA", payload: products });
 
@@ -41,7 +41,7 @@ const AppProvider = ({ children }) => {
   const getSingleProducts = async (url) => {
     dispatch({ type: "SET_SINGLE_LOADING" });
     try {
-      const res = await axios.get(url, { withCredentials: true });
+      const res = await axios.get(url);
       const singleProduct = await res.data;
 
       dispatch({ type: "SET_SINGLEPRODUCT_DATA", payload: singleProduct });
