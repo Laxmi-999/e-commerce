@@ -22,16 +22,25 @@ const ProductReducer = (state, action) => {
         isLoading: true,
       };
 
-    case "SET_API_DATA":
-      const featureData = action.payload.filter((curElem) => {
-        return curElem.featured === "true";
-      });
-      return {
-        ...state,
-        isLoading: false,
-        products: action.payload,
-        featureProducts: featureData,
-      };
+      case "SET_API_DATA":
+        if (!Array.isArray(action.payload)) {
+          console.error("API data is not an array:", action.payload);
+          return {
+            ...state,
+            isLoading: false,
+            products: [],
+            featureProducts: [],
+          };
+        }
+     
+        const featureData = action.payload.filter((curElem) => curElem.featured === "true");
+     
+        return {
+          ...state,
+          isLoading: false,
+          products: action.payload,
+          featureProducts: featureData,
+        };
 
     case "API_ERROR":
       return {
@@ -39,6 +48,7 @@ const ProductReducer = (state, action) => {
         isLoading: false,
         isError: true,
       };
+
     case "SET_SINGLE_LOADING":
       return {
         ...state,
