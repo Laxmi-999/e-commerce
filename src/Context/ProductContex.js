@@ -7,7 +7,7 @@ const AppContext = createContext();
 const API =
   //  "https://api.pujakaitem.com/api/products";
   // "http://localhost:3001/service";
-  "https://ecomapi-htt5.vercel.app/.app";
+  "https://ecomapi-htt5.vercel.app/.app/products";
 
 const initialState = {
   isLoading: false,
