@@ -12,7 +12,7 @@ import { MdSecurity } from "react-icons/md";
 import Star from "./Star";
 import AddToCart from "./addToCart";
 
-const API = "http://localhost:3001/service";
+const API = "https://ecomapi-brown.vercel.app/service";
 const SingleProduct = () => {
     const { getSingleProducts, isSingleLoading, singleProduct } = useProductContext();
 
