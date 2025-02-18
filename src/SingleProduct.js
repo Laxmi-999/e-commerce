@@ -124,7 +124,6 @@ const Wrapper = styled.section`
       ${'' /* background-color:pink; */}
     }
     @media(max-width:480px){
-      background-color:red;
 
     }
 

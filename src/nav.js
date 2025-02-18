@@ -105,12 +105,12 @@ const StyledNav = styled.nav`
             top: 0;
             left: 0;
             text:white;
-            background-color: #e74c3c;
+            // background-color:purple;
             border:black;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
+            align-items: left;
             visibility: hidden;
             
             opacity: 0;
@@ -124,10 +124,10 @@ const StyledNav = styled.nav`
        
        
         .active .navbar-lists {
-            ${'' /* background-color: pink; */}
+             background-color: #A9ACB2; 
+             padding-left:2rem;
             height: 100vh;
             width: 100vh;
-            background-color:#e74c3c;
             border:black;
             position: absolute;
             top: 30vh;
@@ -136,14 +136,12 @@ const StyledNav = styled.nav`
             transform: translateX(0);
             z-index: 9999;
             justify-content: center;
-            ${'' /* align-items:center; */}
+            align-items:left; 
             transform-origin: right;
             transition: all 1s linear;
-            ${'' /* background-color: pink; */}
 
             .navbar-link {
                 font-size: 2.5rem;
-                ${'' /* background-color: pink; */}
             }
         }
     } 
