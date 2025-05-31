@@ -1,432 +1,191 @@
 import React from "react";
-import styled from "styled-components";
-import { FaCheck } from "react-icons/fa";
+import { FaCheck, FaSearch } from "react-icons/fa";
 import { useFilterContext } from "./Context/Filter_Context";
 import FormatPrice from "./Helpers/FormatPrice";
 
 const FilterSection = () => {
   const {
-    filters: {text, color, category, company, minPrice, price, maxPrice},  
+    filters: { text, color, category, company, minPrice, price, maxPrice },
     updateFilterValue,
-     all_products,  
-     clearFilter,
-        } = useFilterContext();
+    clearFilter,
+    all_products,
+  } = useFilterContext();
 
-
-  // console.log("text is" + color);
   const getUniqueData = (data, property) => {
-    let newVal = data.map((currElem) => {
-      return currElem[property];
-    });
-
+    let newVal = data.map((currElem) => currElem[property]);
     if (property === "colors") {
-      // return (newVal =  ["all", ...new Set([].concat(...newVal))]);
       newVal = newVal.flat();
     }
-
-    return (newVal = ["All", ...new Set(newVal)]);
-    //  console.log(newVal);
+    return ["all", ...new Set(newVal)];
   };
 
-
-  //    WE NEED UNIQUE Data
   const categoryOnlyData = getUniqueData(all_products, "category");
   const companyOnlyData = getUniqueData(all_products, "company");
   const colorsOnlyData = getUniqueData(all_products, "colors");
-  // console.log(colorsOnlyData);
-
-
-
-
 
   return (
-    <Wrapper className="wrapper">
-      <div className="filter-search">
-        <form onSubmit={(e) => e.preventDefault()}>
-          <input
-            type="text"
-            name="text"
-            placeholder="Search"
-            value={text}
-            onChange={updateFilterValue}
-          />
-        </form>
-      </div>
-      <div className="filter-category">
-        <h3 className="font-custom">category</h3>
-        <div className="category-items">
-          {categoryOnlyData.map((currElem, index) => {
-            return (
+    <section className="relative bg-gray-50 mx-auto top-[3rem] p-5 w-[35vh] sm:my-10 md:max-w-[30vh] lg:my-12 lg:max-w-[30vh] xl:max-w-[30vh]">
+      <div className="rounded-xl p-4 shadow-lg ">
+        <div className="rounded-lg bg-white  ">
+          <div className="flex flex-col gap-6 lg:gap-[5rem]">
+            {/* Search Filter */}
+            <div className="filter-search group relative">
+              <h3 className="mb-2 border-b-2 border-gray-300 pb-1 text-lg font-serif font-bold text-gray-500 sm:text-xl lg:text-2xl">
+                Search
+              </h3>
+              <form onSubmit={(e) => e.preventDefault()}>
+                <div className="relative">
+                  <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-gray-500" />
+                  <input
+                    type="text"
+                    name="text"
+                    placeholder="Search products..."
+                    value={text}
+                    onChange={updateFilterValue}
+                    className="w-full rounded-lg border border-gray-300 bg-white py-2 pl-10 pr-4 text-sm font-sans text-gray-500 transition-all duration-300 focus:ring-2 focus:ring-gray-200 sm:py-2.5 sm:text-base lg:text-lg"
+                  />
+                </div>
+              </form>
+            </div>
+
+            {/* Category Filter */}
+            <div className="filter-category">
+              <h3 className="mb-2 border-b-2 border-gray-300 pb-1 text-lg font-serif font-bold text-gray-500 sm:text-xl lg:text-2xl">
+                Category
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {categoryOnlyData.map((currElem, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    name="category"
+                    value={currElem}
+                    onClick={updateFilterValue}
+                    className={`rounded-md border px-3 py-1.5 text-sm font-sans capitalize transition-all duration-300 sm:text-base lg:text-lg ${
+                      currElem === category
+                        ? "border-gray-400 bg-gray-500 text-gray-50"
+                        : "border-gray-200 bg-white text-gray-400 hover:bg-gray-100"
+                    }`}
+                  >
+                    {currElem}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Company Filter */}
+            <div className="filter-company">
+              <h3 className="mb-2 border-b-2 border-gray-300 pb-1 text-lg font-serif font-bold text-gray-500 sm:text-xl lg:text-2xl">
+                Company
+              </h3>
+              <form action="#">
+                <div className="relative">
+                  <select
+                    name="company"
+                    id="company"
+                    value={company}
+                    onChange={updateFilterValue}
+                    className="w-full appearance-none rounded-lg border border-gray-300 bg-white py-2 pl-4 pr-10 text-sm font-sans text-gray-500 transition-all duration-300 focus:ring-2 focus:ring-gray-200 sm:py-2.5 sm:text-base lg:text-lg"
+                  >
+                    {companyOnlyData.map((currElem, index) => (
+                      <option
+                        key={index}
+                        value={currElem}
+                        className="text-sm text-gray-500 sm:text-base lg:text-lg"
+                      >
+                        {currElem}
+                      </option>
+                    ))}
+                  </select>
+                  <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-300">
+                    ▼
+                  </span>
+                </div>
+              </form>
+            </div>
+
+            {/* Colors Filter */}
+            <div className="filter-colors">
+              <h3 className="mb-2 border-b-2 border-gray-300 pb-1 text-lg font-serif font-bold text-gray-500 sm:text-xl lg:text-2xl">
+                Colors
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {colorsOnlyData.map((curColor, index) => {
+                  if (curColor === "all") {
+                    return (
+                      <button
+                        key={index}
+                        type="button"
+                        value={curColor}
+                        name="color"
+                        onClick={updateFilterValue}
+                        className={`rounded-md border px-3 py-1.5 text-sm font-sans capitalize transition-all duration-300 sm:text-base lg:text-lg ${
+                          color === curColor
+                            ? "border-gray-400 bg-gray-500 text-gray-50"
+                            : "border-gray-200 bg-white text-gray-400 hover:bg-gray-100"
+                        }`}
+                      >
+                        All
+                      </button>
+                    );
+                  }
+                  return (
+                    <button
+                      key={index}
+                      type="button"
+                      value={curColor}
+                      name="color"
+                      style={{ backgroundColor: curColor }}
+                      onClick={updateFilterValue}
+                      className={`relative h-7 w-7 rounded-full border border-gray-300 transition-all duration-300 sm:h-8 sm:w-8 ${
+                        color === curColor
+                          ? "ring-2 ring-gray-400 ring-offset-gray-50"
+                          : "hover:scale-105"
+                      }`}
+                      title={curColor}
+                    >
+                      {color === curColor && (
+                        <FaCheck className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-gray-50 text-xs sm:text-sm" />
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Price Filter */}
+            <div className="filter-price">
+              <h3 className="mb-2 border-b-2 border-gray-300 pb-1 text-lg font-serif font-bold text-gray-500 sm:text-xl lg:text-2xl">
+                Price
+              </h3>
+              <p className="mb-2 text-sm font-sans text-gray-400 sm:text-base lg:text-lg">
+                <FormatPrice price={price} />
+              </p>
+              <input
+                type="range"
+                name="price"
+                min={minPrice}
+                max={maxPrice}
+                value={price}
+                onChange={updateFilterValue}
+                className="h-1.5 w-full cursor-pointer appearance-none rounded-full bg-gray-200 accent-gray-400"
+              />
+            </div>
+
+            {/* Clear Filters */}
+            <div className="filter-clear">
               <button
-                key={index}
-                type="button"
-                name="category"
-                value={currElem}
-                className={`font-custom ${currElem === category ? "active" : ""} cat-items` }
-                onClick={updateFilterValue}
-              >{currElem}
-
+                onClick={clearFilter}
+                className="w-full rounded-lg bg-red-500 px-6 py-2.5 text-sm font-sans font-semibold text-gray-50 transition-all duration-300 hover:bg-red-600 sm:w-auto sm:text-base lg:text-lg"
+              >
+                Clear Filters
               </button>
-            );
-          }
-          )}
+            </div>
+          </div>
         </div>
       </div>
-      <div className="filter-company">
-        <h3 className="font-custom">company</h3>
-        <form action="#">
-          <label  className='company-select font-custom' htmlFor="company"></label>
-          <select
-            name="company"
-            id="company"
-            className="filter-compnay--select font-custom"
-            onClick={updateFilterValue}>
-            {companyOnlyData.map((currElem, index) => {
-              return (
-                <option key={index} value={currElem} id="company" className="company-selection--option font-custom">
-                  {currElem}
-                </option>
-              );
-            })
-            }
-          </select>
-        </form>
-      </div>
-      <div className="filter-colors colors">
-        <h3 className="font-custom">colors</h3>
-        <div className="filter-color-style">
-          {colorsOnlyData.map((curColor, index) => {
-
-            //console.log(curColor);
-            //console.log(color);
-
-            if (curColor === "All") {
-
-              return (
-                <button
-                  key={index}
-                  type="button"
-                  value={curColor}
-                  name="color"
-                  className="color-all--style font-custom"
-                  onClick={updateFilterValue}>
-                  all
-                </button>
-              );
-            }
-            else {
-              return (
-                <button
-                  key={index}
-                  type="button"
-                  value={curColor}
-                  name="color"
-                  style={{ backgroundColor: curColor }}
-                  className = {`font-custom ${color === curColor ? "btnStyle active" : "btnStyle"} color-menu`}
-                  onClick={updateFilterValue}>
-                  {color === curColor ? <FaCheck className="checkStyle" /> : null}
-                </button>
-              );
-            }
-
-          })}
-        </div>
-      </div>
-      <div className="fileter_price">
-       <h3 className="font-custom">Price</h3>
-        <p className="format-price font-custom"> 
-           <FormatPrice  price = {price} />
-        </p>
-        <input
-          type="range"
-          name="price"
-          min={minPrice}
-          max={maxPrice}
-          value={price}
-          className="price-range font-custom"
-          onChange={updateFilterValue}
-        />
-      </div>
-      <div className="filter-clear">
-       <button className="btn clr-filter-btn rounded-[1rem] font-custom" onClick={clearFilter}>Clear Filters</button>
-
-      </div>
-    </Wrapper>
-
+    </section>
   );
-}
-const Wrapper = styled.section`
-margin:5rem 0;
-display:flex;
-flex-direction:column;
-gap:3rem;
-
-
-
-h3 {
-    padding: 2rem 0;
-    font-size: bold;
-    color:black;
-    font-weight:500;
-  }
-
-  .filter-search {
-    input {
-      padding: 0.6rem 1rem;
-      width: 80%;
-    }
-  }
-
-  .filter-category {
-    div {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1.4rem;
-
-      button {
-        border: none;
-        background-color: ${({ theme }) => theme.color.white};
-        text-transform: capitalize;
-        cursor: pointer;
-
-        &:hover {
-          color: ${({ theme }) => theme.color.btn};
-        }
-      }
-
-      .active {
-        border-bottom: 1px solid #000;
-        color: ${({ theme }) => theme.color.btn};
-      }
-    }
-  }
-
-  .filter-company .filter-compnay--select {
-    padding:1rem;
-    cursor:pointer;
-    font-size:2rem;
-    height:auto;
-    width:100%;
-
-    .company-selection--option{
-    font-size: 2.5rem;
-    padding: 0.5rem 0;
-    cursor:pointer;
-    height:2rem;
-    }
-
-
-    ${'' /* height:30vh;
-    border-radius:1px;
-    padding: 0.6rem 1rem;
-    width: 80%;
-    font-size: 3em;
-    color: ${({ theme }) => theme.color.text};
-    text-transform: capitalize; */}
-  }
-  ${'' /* .company-selection--style{
-    font-size: 2.5rem;
-    padding: 0.5rem 0;
-    cursor:pointer;
-    height:2rem;
-  } */}
-
-  .filter-color-style {
-    display: flex;
-    justify-content: center;
-  }
-
-  .color-all--style {
-    background-color: transparent;
-    text-transform: capitalize;
-    border: none;
-    cursor: pointer;
-  }
-  .btnStyle {
-    width: 2rem;
-    height: 2rem;
-    background-color: #000;
-    border-radius: 50%;
-    margin-left: 1rem;
-    border: none;
-    outline: none;
-    opacity: 0.5;
-    cursor: pointer;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
-  .active {
-    opacity: 1;
-  }
-  .checkStyle {
-    font-size: 1rem;
-    color: #fff;
-  }
-  .filter_price {
-    input {
-      margin: 0.5rem 0 1rem 0;
-      padding: 0;
-      box-shadow: none;
-      cursor: pointer;
-    }
-  }
-
-  .filter-shipping {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .filter-clear .btn {
-  height:auto;
-  width:auto;
-  padding:1rem;
-  font-size: 2rem;
-  background-color: #ec7063;
-  color: #000;
-  }
-
-  @media (max-width: 768px) {
-
-      margin:5rem 0;
-      display:flex;
-      flex-direction:row;
-      justify-content:space-between;
-      justify:start;
-      align:center;
-      ${'' /* background-color:red; */}
-      width:auto;
-
-      .filter-search {
-    input {
-      margin-top:15px;
-      align:center;
-      justify:center;
-      font-size:1rem
-      padding: 0.6rem 1rem;
-      width: 15vh;
-    }
-  }
-  .filter-category {
-
-    h3{
-      font-weight:bold;
-      justify:start;
-      margin-left:auto;
-      ${'' /* background-color:red; */}
-      padding:0;
-    }
-    .cat-items {
-      display: flex;
-      font-size:1rem;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1.4rem;
-    }
-  }
-  .filter-colors{
-    
-    h3{
-      padding:0;
-      font-weight:bold;
-
-    
-    }
-    .color-all--style{
-        font-size:1rem;
-      }
-      .btnStyle {
-    width: 1.5rem;
-    height: 1.5rem;
-    background-color: #000;
-    border-radius: 50%;
-    margin-left: 0.5rem;
-   
-
-  }
-  .checkStyle {
-    font-size: 1rem;
-    justify:center;
-    
-  }
-  }
-    .filter-color-style{
-      ${'' /* background-color:red; */}
-      justify-content:start;
-      width:auto;
-    }
-    .filter-company {
-
-      h3{
-        font-weight:bold;
-        ${'' /* background-color:red; */}
-        padding:0;
-      }
-
-    .filter-compnay--select{
-
-    cursor:pointer;
-    font-size:1rem;
-    height:auto;
-    width:auto;
-    ${'' /* background-color:yellow; */}
-
-    .company-selection--option{
-
-    font-size: 1rem;
-    padding: 0.5rem 0;
-    cursor:pointer;
-    height:1.5rem;
-    }
-   
-
-    } 
-  }
-  .fileter_price{
-    h3{
-      font-weight:bold;
-      padding:0;
-    }
-    
-     
-      
-  }
-    .format-price{
-    font-size:1rem;
-  }
-
-  .filter-clear .btn {
-  height:auto;
-  width:auto;
-  padding:5px;
-  font-size: 1.5rem;
-  }
-  
-  }
-
-  @media(max-width:1024px)
-{
-  flex-direction:column;
-
-  .filter-category {
-
-h3{
-  font-size:1rem;
-  font-weight:bold;
-  justify:start;
-  margin-left:auto;
-  ${'' /* background-color:red; */}
-  padding:0;
-}
-${'' /* 
- */}
-}
-
-}
-`;
+};
 
 export default FilterSection;

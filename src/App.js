@@ -12,6 +12,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './GlobalStyle';
 import Header from "./Header";
 import Footer from "./Footer";
+import Nav from './Nav';
 const  App = () => {
 
   const theme = {
@@ -39,8 +40,10 @@ const  App = () => {
 
   return (
            <ThemeProvider theme = {theme}>
+
              <BrowserRouter>
               <Header />
+              {/* <Nav /> */}
               <GlobalStyle />
                 <Routes>
                   <Route path ='/' element ={<Home />} />

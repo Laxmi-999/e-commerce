@@ -1,130 +1,47 @@
-import styled from "styled-components";
-import { useProductContext } from "./Context/ProductContex";
+import React from "react";
+import { useProductContext } from "./Context/ProductContext";
 import Product from "./Product";
 
 const FeatureProduct = () => {
   const { isLoading, featureProducts } = useProductContext();
-//   console.log(featureProducts);
-
 
   if (isLoading) {
-    return <div> ......Loading </div>;
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="text-2xl sm:text-3xl font-semibold text-gray-700 animate-pulse">
+          Loading...
+        </div>
+      </div>
+    );
   }
 
   return (
-    <Wrapper className="section ">
-      <div className="container">
-        <div className="intro-data font-custom text-[1.5rem] font-bold ">Check Now!</div>
-        <div className="common-heading font-custom">Our Feature Products</div>
-        <div className="grid grid-three-column ">
-          {featureProducts.map((curElem) => {
-            return <Product key={curElem.id} {...curElem} />;
-          })}
+    <section className="bg-gradient-to-b from-gray-50 to-white py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16">
+      <div className="mx-auto w-7xl">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16 lg:mb-20 xl:mb-24">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-gray-600 uppercase tracking-wider animate-slide-in-up">
+            Discover Now
+          </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-gray-900 mt-4 animate-slide-in-up animation-delay-200">
+            Our Featured Products
+          </h2>
+          <p className="mt-4 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-600 max-w-3xl mx-auto animate-slide-in-up animation-delay-400">
+            Explore our handpicked selection of premium products designed to elevate your experience.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-14 2xl:gap-16">
+          {featureProducts.map((curElem) => (
+            <div
+              key={curElem.id}
+              className="transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+            >
+              <Product {...curElem} />
+            </div>
+          ))}
         </div>
       </div>
-    </Wrapper>
+    </section>
   );
 };
-
-const Wrapper = styled.section`
-margin-top:8%;
-  padding: 9rem 0;
-  background-color: ${({ theme }) => theme.color.bg};
-
-  .container {
-    max-width: 120rem;
-  }
-
-  figure {
-    width: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.5s linear;
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      transition: all 0.2s linear;
-      cursor: pointer;
-    }
-    &:hover::after {
-      width: 100%;
-    }
-    &:hover img {
-      transform: scale(1.2);
-    }
-    img {
-      max-width: 90%;
-      margin-top: 1.5rem;
-      height: 20rem;
-      transition: all 0.2s linear;
-    }
-
-    .caption {
-      position: absolute;
-      top: 15%;
-      right: 10%;
-      text-transform: uppercase;
-      background-color: ${({ theme }) => theme.color.bg};
-      color: ${({ theme }) => theme.color.helper};
-      padding: 0.8rem 2rem;
-      font-size: 1.2rem;
-      border-radius: 2rem;
-    }
-  }
-
-  .card {
-    background-color: #fff;
-    border-radius: 1rem;
-
-    .card-data {
-      padding: 0 2rem;
-    }
-
-    .card-data-flex {
-      margin: 2rem 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    h3 {
-      color: ${({ theme }) => theme.color.text};
-      text-transform: capitalize;
-    }
-
-    .card-data--price {
-      color: ${({ theme }) => theme.color.helper};
-    }
-
-    .btn {
-      margin: 2rem auto;
-      background-color: rgb(0 0 0 / 0%);
-      border: 0.1rem solid rgb(98 84 243);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      &:hover {
-        background-color: rgb(98 84 243);
-      }
-
-      &:hover a {
-        color: #fff;
-      }
-      a {
-        color: rgb(98 84 243);
-        font-size: 1.4rem;
-      }
-    }
-  }
-`;
 
 export default FeatureProduct;

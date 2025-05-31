@@ -9,9 +9,9 @@ const CartAmountToggle = ({ amount, setIncrement, setDecrement }) =>{
     return (
       <Wrapper>
         <div className="cart-button">
-          <div className="amount-toggle">
+          <div className="amount-toggle flex justify-center align-center items-center gap-3">
             <button className="btn-dec" onClick={ ()=> setDecrement() }><FaMinus /></button>
-              <div className="amount-style">{amount}</div>
+              <div className="text-[1.8rem] font-bold">{amount}</div>
             <button className= "btn-inc" onClick={ ()=> setIncrement()}><FaPlus /></button>
           </div>
         </div>
@@ -30,16 +30,17 @@ const Wrapper = styled.section`
 
   .btn-dec{
     
-    font-size:2rem;
+    font-size:1.5rem;
 
   }
-  .amount-style{
-    font-size:2rem;
+  .text-[1.5rem] font-bold{
+    font-size:1.5rem;
+    
    
   }
   .btn-inc{
     
-    font-size:2rem;
+    font-size:1.5rem;
   }
   
 }
@@ -67,7 +68,7 @@ const Wrapper = styled.section`
     font-size:1rem;
 
   }
-  .amount-style{
+  .text-[1.5rem] font-bold{
     font-size:1rem;
     margin-left:0;
     padding-left:0;

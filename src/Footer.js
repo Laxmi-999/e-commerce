@@ -1,329 +1,125 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-import Button from "./Styles/Button";
-import { FaDiscord,FaYoutube,FaInstagram } from "react-icons/fa";
-import { FaLinkedin, FaFacebook, FaSquareTwitter } from "react-icons/fa6";
-
+import { NavLink } from 'react-router-dom';
+import { FaDiscord, FaYoutube, FaInstagram } from 'react-icons/fa';
+import { FaLinkedin, FaFacebook, FaSquareTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
+    return (
+        <>
+            {/* Main Footer */}
+            <footer className="relative bg-gray-800 mt-[30vh] py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12">
+                                <section className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
+                                    <div className="mx-auto max-w-3xl sm:max-w-4xl md:max-w-5xl lg:max-w-6xl">
+                                        <div className="bg-white rounded-xl shadow-lg shadow-gray-400/60 p-6 sm:p-8 lg:p-10 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 items-center justify-between">
+                                            <div className="flex flex-col gap-2 text-center sm:text-left">
+                                                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold:text-gray-800 font-serif">
+                                                    Ready to get started?
+                                                </h3>
+                                                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 font-serif">
+                                                    Talk to us today
+                                                </h3>
+                                            </div>
+                                            <div>
+                                                <div className="btn flex justify-center sm:justify-end">
+                                                    <NavLink to="/contact">
+                                                        <button className="px-6 py-3 sm:px-8 sm:p-4 bg-blue-600 text-white text-sm sm:text-base md:text-lg font-semibold font-serif rounded-lg shadow-md hover:bg-blue-700 hover:scale-105 transition-all duration-300">
+                                                            Get Started
+                                                        </button>
+                                                    </NavLink>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
 
- return(
-<>
-        <Wrapper className="wrapper">
-            <div className=" contact-short">
-            <div className="grid  grid-two-columns mt-[3rem]">
-                <div className="heading-txt" >
-                    <h3 className="font-custom text-[1.5rem">Ready to get started?</h3>
-                    <h3 className="font-custom">Talk to us today</h3>
-                </div>
-                <div className="btn-div">
-                    <Button className="btn">
-                        <NavLink to ="/contact" className="btn-txt font-custom">Get started</NavLink>
-                    </Button>
-                </div>
+                                <div className=" mx-auto max-w-10xl pt-24 sm:pt-32 lg:pt-40">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-16 xl:gap-16">
+                                        {/* About Section */}
+                        <div className="footer-about text-white">
+                            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white font-serif mb-4 sm:mb-6">
+                                Luxxy Store
+                            </h3>
+                            <p className="text-sm sm:text-base md:text-lg text-gray-300 font-sans leading-relaxed max-w-xs">
+                                Lorem Ipsum is simply dummy text for the developers and designers.
+                            </p>
+                        </div>
 
-            </div>
-            </div>
-        
-        {/* main footer */}
-        <footer className="footer mt-[2rem]">
-            <div className="footer-container grid grid-four-columns">
-            <div className="footer_about">
-                <h3 className="font-custom">Luxxy Store</h3>
-                <p className="font-custom text-[1.9rem"> Lorem Ipsum is simply 
-                sample text for the developers
-                and desingers.</p>
-            </div>
-            <div className="footer_Subscribe">
-                <h3 className="font-custom">Subscribe to get updates:</h3>
-                <input  type = "email" placeholder="your email"/>
-                <input type = "submit" value = "Subscribe"/>
-            </div>
-            <div className=" footer_follow">
-                <h3 className="font-custom">Follow Us:</h3>
-            <div className="social_icons ">
-                    <div className="flex ">
-                        <FaDiscord className = "icons mr-[1rem]"/>
-                        <FaInstagram className = "icons mr-[1rem]"/>
-                        <a href = "https://youtu.be/Rtapgrl7A5Y?si=RuoeywWrjDK_2rgC"
-                        target = "_blank">
-                        <FaYoutube className = "icons"/>
-                        </a>
+                        {/* Subscribe Section */}
+                        <div className="footer-subscribe text-white">
+                            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white font-serif mb-4 sm:mb-6">
+                                Subscribe to get updates
+                            </h3>
+                            <div className="flex flex-col gap-3">
+                                <input
+                                    type="email"
+                                    placeholder="Your email"
+                                    className="w-full max-w-md p-3 sm:p-4 rounded-lg border border-gray-600 bg-gray-700 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all duration-300"
+                                />
+                                <div>
+                                    <button
+                                        type="submit"
+                                        className="w-full sm:w-auto px-6 py-2 sm:py-3 bg-blue-600 text-white text-sm sm:text-base md:text-lg font-semibold font-serif rounded-lg hover:bg-blue-700 hover:scale-105 transition-all duration-300"
+                                    >
+                                        Subscribe
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Follow Us Section */}
+                        <div className="footer-follow text-white">
+                            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white font-serif mb-4 sm:mb-6">
+                                Follow Us
+                            </h3>
+                            <div className="social-icons flex gap-x-3 sm:gap-x-3 mb-4 justify-left">
+                                <FaDiscord className="text-2xl sm:text-3xl md:text-4xl text-white hover:text-blue-600 hover:scale-110 transition-all duration-300" />
+                                <FaInstagram className="text-2xl md:text-3xl md:text-4xl text-white hover:text-blue-600 hover:scale-110 transition-all duration-300" />
+                                <a href="https://youtu.be/Rtapgrl7A5Y?si=RuoeywWrjDK_2rgC" target="_blank" rel="noopener noreferrer">
+                                    <FaYoutube className="text-2xl sm:text-3xl md:text-4xl text-white hover:text-blue-600 hover:scale-110 transition-all duration-300" />
+                                </a>
+                            </div>
+                            <div className="social-icons flex gap-x-2 sm:gap-x-3 mb-4 justify-left">
+                                <FaLinkedin className="text-2xl sm:text-3xl md:text-4xl text-white hover:text-blue-600 hover:scale-110 transition-all duration-300" />
+                                <FaSquareTwitter className="text-2xl sm:text-3xl md:text-4xl text-white hover:text-blue-600 hover:scale-110 transition-all duration-300" />
+                                <FaFacebook className="text-2xl sm:text-3xl md:text-4xl text-white hover:text-blue-600 hover:scale-110 transition-all duration-300" />
+                            </div>
+                        </div>
+
+                        {/* Contact Us Section */}
+                        <div className="footer-contact text-white">
+                            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white font-serif mb-4 sm:mb-6">
+                                Contact Us
+                            </h3>
+                            <p className="text-sm sm:text-base md:text-lg text-gray-300 font-sans">
+                                9824543632
+                            </p>
+                            <p className="text-sm sm:text-base md:text-lg text-gray-300 font-sans mt-2">
+                                Bharatpur-10, Chitwan
+                            </p>
+                        </div>
                     </div>
-                    <div className="flex ">
-                         <FaLinkedin className = "icons mr-[1rem]" />
-                         <FaSquareTwitter className="icons mr-[1rem]" />
-                         <FaFacebook className = "icons"/>
+
+                    {/* Bottom Footer */}
+                    <div className="bottom-footer-section mt-12 sm:mt-16">
+                        <hr className="border-gray-600" />
+                        <div className="container mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mt-6 sm:mt-8">
+                            <p className="text-sm sm:text-base text-gray-300 font-sans text-center sm:text-left">
+                                @{new Date().getFullYear()} Luxxy Store. All Rights Reserved.
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center sm:justify-end">
+                                <p className="text-sm sm:text-base text-gray-300 font-sans text-center sm:text-right hover:text-blue-600 transition-colors duration-300">
+                                    Privacy Policy
+                                </p>
+                                <p className="text-sm sm:text-base text-gray-300 font-sans text-center sm:text-right hover:text-blue-600 transition-colors duration-300">
+                                    Terms and Conditions
+                                </p>
+                            </div>
+                        </div>
                     </div>
-            
                 </div>
-            </div>  
+            </footer>
+        </>
+    );
+};
 
-
-            <div className="footer_contact">
-                <h3 className="font-custom"> contact Us:</h3>
-                {/* <a href = "tel:9824543632">9824543632</a> */}
-                <p className="font-custom font-normal text-[1.9rem"> 9824543632</p>
-                <p className="font-custom text-[1.9rem]"> Bharatpur-10,Chitwan</p>
-
-                
-            </div>
-            </div>
-            {/* bottom-footer */}
-            <div className = "bottom-footer-section">
-            <hr className="mt-[6rem]" />
-            <div className="container grid grid-two-columns">
-            <p className="font-custom text-[1.5rem">@{new Date().getFullYear()} LuxxyStore  All Right Reserve</p>
-
-            <div>
-                <p className="font-custom text-[1.5rem">Privacy Policy</p>
-                <p className="font-custom text-[1.5rem"> Terms And Conditions:</p>
-            </div>
-            </div>
-            </div>
-        
-        </footer>
-    </Wrapper>
-</>
-);}
-
-const Wrapper = styled.section`
-${'' /* margin-bottom:10%; */}
-
-.contact-short{
-    ${'' /* padding:auto; */}
-    margin:auto;
-    max-width:50vw;
-    padding:0;
-    border-radius:2rem;
-    background-color: ${({ theme }) => theme.color.bg};
-    box-shadow: ${({ theme}) => theme.color.shadowSupport};
-    transform: translateY(50%);
-    
-}
-.grid{
-    height:auto;
-    padding:3rem;
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
-    aling-self:center;
-    ${'' /* background-color: ${({ theme}) => theme.color.bg}; */}
-
-    h3{
-        font-size:2rem;
-        font-weight:bold;
-
-    }
-}
-.footer{
-    width:100%;
-    padding: 14rem 0 9rem 0;
-    background-color: ${({ theme}) => theme.color.footer_bg};
-}
-.footer-container{
-    background-color:${({ theme}) => theme.color.footer_bg};
-    ${'' /* background-color:yellow; */}
-    height:auto;
-    justify-self:center;
-    justify-content:center;
-    align:center;
-    items:center;
-    margin-left:auto;
-    margin-right:auto;
-    max-width:auto;
-    padding: auto;
-    border-radius:2rem;
-    justify-content:space-between;
-    
-    h3{
-        color: ${({ theme}) => theme.color.hr};
-        margin-bottom:2.5rem;
-        font-size:2.5rem;
-    }
-    p{
-        color:white;
-        font-size:1.5rem;
-        width:20vh;
-    }
-}
-
-.footer_Subscribe{
-    display:grid;
-    gap:1rem;
-}
-.social_icons{
-    display:inline-grid;
-    gap:2rem;
-
-    .icons{
-    font-size:3.5rem;
-    color:white;
-}
-}
-.container{
-    background-color: ${({ theme}) => theme.color.footer};
-
-    p{
-        color:white;
-        font-size:1.5rem;
-    }
-}
-
-
-
-@media(max-width:1024px)
-{
-    .contact-short
-    {
-    margin:auto;
-    max-width:auto;
-    padding:0;
-
-    .btn-div{
-        height:auto;
-        width:auto;
-        margin:auto;
-
-        .btn{
-            padding:1rem;
-
-            .btn-txt{
-                font-size:1rem;
-            }
-        }
-    }
-    }
-
-   .grid{
-    margin-left:auto;
-    margin-right:auto;
-    padding:auto;
-    h3{
-        font-size:1.5rem;
-        font-weight:bold;
-
-    }
-   }
-   .footer-container{
-    background-color:${({ theme}) => theme.color.footer_bg};
-    margin: 0;
-    max-width:auto;
-    padding:1rem;
-    border-radius:2rem;
-    justify-content:first;
-    
-    h3{
-        color: ${({ theme}) => theme.color.hr};
-        margin-bottom:2rem;
-        font-size:1.5rem;
-    }
-    p{
-        color:white;
-        font-size:1rem;
-        width:20vh;
-    }
-}
-.footer_Subscribe{
-    display:grid;
-    gap:1rem;
-
-    input, textarea{
-    max-width: 40rem;
-    padding: 1rem 1.5rem;
-    font-size: 1rem;
-
-}
-
-.input[type="submit"]
-{
-    max-width: 8rem;
-    padding: 1rem 1.5rem;
-    font-size: 1rem;
-    }
-}
-}
-
-
-@media(max-width: 768px)
-
-{
-   position:relative;
-   justify-self:center;
-   align-self:center;
-     
-   .grid{
-    height:auto;
-    padding:3rem;
-    display:flex;
-    flex-direction:column;
-    grid-template-columns: 1fr 1.2fr .5fr .8fr ;
-    justify-content:space-between;
-    gap:8rem;
-    aling-self:center;
-    ${'' /* background-color: ${({ theme}) => theme.color.bg}; */}
-}
-   
-   .contact-short{
-    
-    margin:0;
-    padding:0;
-    padding: 0.5rem;
-    border-radius:2rem;
-
-    .grid{
-        display:flex;
-        flex-direction:row;
-        justify-content:space-between;
-
-        .btn-div{
-        height:auto;
-        width:auto;
-        margin:auto;
-
-        .btn{
-            padding:1.5rem;
-
-
-            .btn-txt{
-                font-size:1rem;
-            }
-        }
-    }
-    }
-
-    .heading-txt{
-        display:inline-flex;
-
-    }
-
-    h3{
-        font-size:1rem;
-    }
-    .btn-div{
-        height:auto;
-
-        .btn{
-             display:inline-flex;
-             justify-content:center;
-             align-items:center;
-              height:2vh;
-              width:auto;
-
-            .btn-txt{
-                font-size:0.5rem;
-            }
-        }
-    }
-    .footer{
- 
-     .footer-container{
-     }
-    
-   }
-}
-}
-    
-`;
 export default Footer;

@@ -5,11 +5,16 @@ import Product from "../Product";
 
 // getting props from productList file 
 const GridView = ({ products }) =>{
-  // console.log(products);
+  console.log(products);
+
+  // Ensure products is an array before mapping
+  if (!products || !Array.isArray(products)) {
+    return <div>No products available</div>;
+  }
     return( 
     <Wrapper>
         <div className="section">
-          <div className="container grid grid-three-column">
+          <div className="container grid grid-three-column gap-[5rem]">
             {
               products.map((currElem)=> {
 
@@ -25,7 +30,7 @@ const Wrapper = styled.section`
 padding: 9rem 0;
 
 .container {
-  max-width: 120rem;
+  width: 150rem;
 }
 
 .grid {
