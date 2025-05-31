@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Nav from './Nav';
+import Nav from './nav.js';
 import { GlobalStyle } from "./GlobalStyle.js";
 
 const Header = () => {

@@ -12,7 +12,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './GlobalStyle';
 import Header from "./Header";
 import Footer from "./Footer";
-import Nav from './Nav';
+import Nav from './nav';
 const  App = () => {
 
   const theme = {
