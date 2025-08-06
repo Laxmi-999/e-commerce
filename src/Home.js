@@ -11,13 +11,13 @@ import styled from "styled-components";
 const Home = () =>
 {
     const data = {
-        name:"Luxxy Store",
+        name:"Luxxy  Electronic Store",
     };
     return(
         <>   
                 <HeroSection   myData = {data}/>
                 <FeaturedProduct />
-                <Wrapper>
+                <Wrapper >
                     <Services />
                     <Trusted />
                 </Wrapper>
@@ -30,6 +30,7 @@ const Home = () =>
         
 };
 const Wrapper = styled.section`
+
 
   @media(max-width: ${({theme}) => theme.media.mobile})
   {

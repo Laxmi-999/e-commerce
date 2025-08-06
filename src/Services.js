@@ -1,219 +1,50 @@
 import React from "react";
-import styled from "styled-components";
 import { TbTruckDelivery } from "react-icons/tb";
 import { MdSecurity } from "react-icons/md";
 import { GiReceiveMoney } from "react-icons/gi";
- 
 
-const Services = () =>
+const Services = () => {
+  return (
+    <section className="bg-gray-50 mt-[10rem] py-[10rem] sm:py-[5rem] lg:py-[10rem] px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12">
+       <h1 className="text-center text-[3rem] mb-[2rem] mt-[1rem]">Our Services</h1>
 
-{
-    return(
-    <Wrapper>
-        <div className="container">
-         <div className="grid grid-three-column">
+      <div className="container mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 xl:gap-12">
+          {/* Service 1: Super Fast and Free Delivery */}
+          <div className="services bg-white rounded-xl shadow-lg p-6 sm:p-8 flex flex-col items-center justify-center text-center transition-all duration-300 hover:shadow-xl hover:scale-105 animate-fade-in">
+            <TbTruckDelivery className="text-4xl sm:text-5xl lg:text-6xl text-blue-600 mb-4 transition-transform duration-300 hover:scale-110" />
+            <h3 className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl font-semibold text-gray-800 font-serif capitalize">
+              Super Fast & Free Delivery
+            </h3>
+          </div>
 
-           <div className="services">
-             <div className="service-data">
-                <TbTruckDelivery  className=" icon icon-1"/>
-                 <h3 className="font-custom">upper fast and free delivery</h3>
-             </div>
+          {/* Service 2 & 3: Non-Contact Shipping and Money Back Guarantee */}
+          <div className="services flex flex-col gap-6 sm:gap-8">
+            <div className="service-data-2 bg-white rounded-xl shadow-lg p-6 sm:p-8 flex flex-col items-center justify-center text-center transition-all duration-300 hover:shadow-xl hover:scale-105 animate-fade-in">
+              <MdSecurity className="text-4xl sm:text-5xl lg:text-6xl text-blue-600 mb-4 transition-transform duration-300 hover:scale-110" />
+              <h3 className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl font-semibold text-gray-800 font-serif capitalize">
+                Non-Contact Shipping
+              </h3>
+            </div>
+            <div className="service-data-2 bg-white rounded-xl shadow-lg p-6 sm:p-8 flex flex-col items-center justify-center text-center transition-all duration-300 hover:shadow-xl hover:scale-105 animate-fade-in">
+              <GiReceiveMoney className="text-4xl sm:text-5xl lg:text-6xl text-blue-600 mb-4 transition-transform duration-300 hover:scale-110" />
+              <h3 className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl font-semibold text-gray-800 font-serif capitalize">
+                Money Back Guarantee
+              </h3>
+            </div>
+          </div>
 
-           </div>
-           <div className="services">
-             <div className=" services-column-2">
-
-                    <div className="service-data-2">
-                        <MdSecurity  className='icon icon-2'/>
-                        <h3 className="font-custom">non-contact shipping</h3>
-                    </div>
-            
-                    <div className="service-data-2">
-                        <GiReceiveMoney className='icon icon-3'/>
-                        <h3 className="font-custom">non-contact shipping</h3>
-                   </div>
-             </div>
-           </div>
-           <div className="services">
-             <div className="service-data">
-                <TbTruckDelivery  className="icon icon-4"/>
-                <h3 className="font-custom">Money Back Gurantee</h3>
-             </div>
-
-           </div>
-
-         </div>
+          {/* Service 4: Super Fast and Free Delivery (Repeated in Original) */}
+          <div className="services bg-white rounded-xl shadow-lg p-6 sm:p-8 flex flex-col items-center justify-center text-center transition-all duration-300 hover:shadow-xl hover:scale-105 animate-fade-in">
+            <TbTruckDelivery className="text-4xl sm:text-5xl lg:text-6xl text-blue-600 mb-4 transition-transform duration-300 hover:scale-110" />
+            <h3 className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl font-semibold text-gray-800 font-serif capitalize">
+              Super Fast & Free Delivery
+            </h3>
+          </div>
         </div>
-    </Wrapper>
-
-    );
+      </div>
+    </section>
+  );
 };
-const Wrapper = styled.section`
-
-${'' /* background-color:pink; */}
-
-height:auto;
-.container{
-background-color:fit-content;
-padding:2rem 0 2rem 0;
-height:100%;
-width:100%;
-margin-top:7%;
-margin-bottom:7%;
-
-}
-
-
-.grid-three-column{
-    ${'' /* grid-template-columns:repeat(3,  2fr); */}
-    ${'' /* background-color:black; */}
-    display:flex;
-    flex-direction:row;
-    height:20vh;
-    width:100%;
-    border-radius:2rem;
-    gap:10rem;
-    ${'' /* background-color: white; */}
-}
-.services{
-    background-color: ${({theme}) => theme.color.bg};
-    ${'' /* background-color:yellow; */}
-    height: 30vh;
-    border-radius:2rem;
-    width:100%;
-    ${'' /* padding:3rem; */}
-    display:flex;
-    flex-direction:row;
-    ${'' /* padding:1%; */}
-    gap:4rem;
-    justify-content:center;
-    align-items:center;
-    
-
- .service-data{
-    position:absolute;
-    margin-top:0;
-    display:flex;
-    gap:1rem;
-    background-color: white;
-    border-radius:2rem;
-
-    padding:2rem;
-    ${'' /* padding:1%; */}
-    justify-content:center;
-    align-items:center;
-    h3{
-        font-size: 2rem;
-        color: ${({ theme}) =>  theme.color.text};
-
- 
-    } 
-}
-.icon,
-.icon-1,
-.icon-2,
-.icon-3,
-.icon-4
-    {
-        font-size: 2.5rem;
-        color:blue;
-
-    }
-
-.services-column-2{
-        display:grid;
-        gap: 5rem; 
-        background-color:white;
-        margin-top:0;
-        margin-bottm:0;
-        height:auto;
-        width:100%;
-        padding:5px;
-
-    }
-    .service-data-2{
-    display:flex;
-    flex-direction:column;
-    gap:4rem;
-    background-color: ${({theme}) => theme.color.bg};
-    padding: 3px;
-    height:auto;
-    width:100%;
-    padding:2rem;
-    border-radius:2rem;
-    justify-content:center;
-    align-items:center;
-
-    h3{
-        font-size: 2rem;
-        background-color:white;
-        padding:2rem;
-        border-radius:2rem;
-
- 
-    }
-    .icon{
-        color:blue;
-        font-size:3rem;
-        align-self:center;
-        justify-content:center;
-        align-items:center;
-        background-color:white;
-
-    }
-
-    }
-}
-
-@media(max-width: ${({ theme}) => theme.media.mobile}){
-    .grid-three-column {
-      ${'' /* height:auto;
-      width:100%; */}
-      display: grid;
-      grid-direction:row;
-      grid-template-columns: repeat(1, 1fr); /* Change to single column for mobile */
-     
-      position:absolute;
-    }
-    .services{
-        margin-bottom:3rem;
-        ${'' /* background-color:purple; */}
-        
-    }
-    .service-data{
-        margin-top:5rem;
-        margin-bottom:5rem;
-        ${'' /* background-color:blue; */}
-    }
-    .services-column-2{
-        height:auto;
-        width:100%;
-        position:absolute;
-        justify-content:center;
-        align-items:center;
-        display:inline-grid;
-        grid-template-columns: repeat(1, 1fr);
-        gap:2rem;
-        ${'' /* background-color:pink; */}
-        
-        ${'' /* padding:5px; */}
-
-        .service-data-2{
-            ${'' /* background-color:blue; */}
-            display:inline-grid;
-            grid-direction:row;
-            gap:2rem;
-            position:relative;
-    
-        }
-
-    }
-
-    }
-
-
-}
-
-`;
 
 export default Services;

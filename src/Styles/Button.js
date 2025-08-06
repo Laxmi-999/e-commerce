@@ -19,7 +19,6 @@ import styled from "styled-components";
   &:hover,
   &:active {
     box-shadow: 0 2rem 2rem 0 rgb(132 144 255 / 30%);
-    box-shadow: ${({ theme }) => theme.color.shadowSupport};
     transform: scale(0.96);
   }
 
