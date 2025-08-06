@@ -53,3 +53,6 @@ npm start
 # Start the frontend
 cd ../client
 npm start
+```
+
+<table> <tr> <td><b>Home Page</b></td> <td><b>Products Page</b></td> </tr> <tr> <td><img src="./screenshots/home.png" width="400"/></td> <td><img src="./screenshots/products.png" width="400"/></td> </tr> <tr> <td><b>Single Product Page</b></td> <td><b>List View</b></td> </tr> <tr> <td><img src="./screenshots/singleProduct.png" width="400"/></td> <td><img src="./screenshots/listView.png" width="400"/></td> </tr> <tr> <td><b>Cart Page</b></td> <td><b>Footer Section</b></td> </tr> <tr> <td><img src="./screenshots/cart.png" width="400"/></td> <td><img src="./screenshots/footer.png" width="400"/></td> </tr> <tr> <td><b>Feature Section</b></td> <td><b>Service Section</b></td> </tr> <tr> <td><img src="./screenshots/feature.png" width="400"/></td> <td><img src="./screenshots/service.png" width="400"/></td> </tr> <tr> <td><b>Trusted Section</b></td> </tr> <tr> <td><img src="./screenshots/trusted.png" width="400"/></td> </tr> </table> 
